@@ -1,41 +1,30 @@
 <template>
    <div class="m-auto">
-      <form class="w-72 flex flex-col" @submit.prevent="login">
-         <h2 class="font-bold text-3xl">Sign in</h2>
-         <!-- <div class="field">
-            <label for="email">Email</label>
-            <input type="email" name="email" v-model="email" />
-         </div> -->
-         <div class="flex flex-col my-4">
-            <app-field
-               value=""
-               label="Email"
-            />
-            <app-field
-               value=""
-               label="Password"
-            />
-         </div>
-         <p v-if="feedback">{{ feedback }}</p>
-         <app-button>Submit</app-button>
-      </form>
+      <sign-in
+         v-if="sign_in"
+         @toggle="sign_in = false"
+      />
+      <sign-up
+         v-else
+         @toggle="sign_in = true"
+      />
    </div>
 </template>
 
 <script>
+import SignIn from './SignIn'
+import SignUp from './SignUp'
+
 export default {
-   name: "Login",
+   name: 'auth',
+   components:{
+      SignIn,
+      SignUp
+   },
    data() {
       return {
-         email: null,
-         password: null,
-         feedback: null,
-      };
-   },
-   methods: {
-      login() {
-         
-      },
-   },
+         sign_in: false
+      }
+   }
 };
 </script>

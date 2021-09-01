@@ -13,6 +13,12 @@
       </div>
       <p v-if="feedback">{{ feedback }}</p>
       <app-button>Submit</app-button>
+      <p 
+         class="italic text-xs text-right cursor-pointer mt-4"
+         @click="$emit('toggle')"
+      >
+         No account? Click hier to sign up
+      </p>
    </form-container>
 </template>
 
