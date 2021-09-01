@@ -7,7 +7,7 @@ export const actions = {
          const user = await signInWithEmailAndPassword(auth, email, password)
          commit('setUser', user)
       }catch(e){
-         console.log(e)
+         throw new Error(e)
       }
    }
 }
