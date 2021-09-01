@@ -1,5 +1,7 @@
 <template>
-   <form-container>
+   <form-container
+      :submit="$store.dispatch('')"
+   >
       <h2 class="font-bold text-3xl">Sign in</h2>
       <div class="flex flex-col my-4">
          <app-field
@@ -34,7 +36,6 @@ export default {
          email: '',
          password: ''
       }
-   },
-
+   }
 }
 </script>

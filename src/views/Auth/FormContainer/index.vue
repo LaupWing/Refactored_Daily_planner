@@ -1,5 +1,8 @@
 <template>
-   <form class="w-72 flex flex-col" @submit.prevent="login">
+   <form 
+      class="w-72 flex flex-col" 
+      @submit.prevent="$emit('submit')"
+   >
       <slot />
    </form>
 </template>
