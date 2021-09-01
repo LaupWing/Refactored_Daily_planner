@@ -17,7 +17,7 @@
             />
          </div>
          <p v-if="feedback">{{ feedback }}</p>
-         <button class="bg-main-highlight font-bold uppercase text-sm tracking-wide p-2 rounded px-6">Submit</button>
+         <button class="bg-main-highlight-primary hover:bg-main-highlight-dark duration-200 font-bold uppercase text-sm tracking-wide p-2 rounded px-6">Submit</button>
       </form>
    </div>
 </template>
