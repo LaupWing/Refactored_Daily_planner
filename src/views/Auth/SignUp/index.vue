@@ -1,7 +1,5 @@
 <template>
-   <form-container
-      @submit="$store.dispatch()"
-   >
+   <form-container>
       <h2 class="font-bold text-3xl">Sign up</h2>
       <div class="flex flex-col my-4">
          <app-field

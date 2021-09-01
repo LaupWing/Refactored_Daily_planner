@@ -4,7 +4,7 @@
       <input 
          class="px-2 py-1 outline-none border-gray-300 rounded border"
          :type="type" 
-         v-model="value" 
+         v-model="value_proxy" 
       />
    </div>
 </template>

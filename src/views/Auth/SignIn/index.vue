@@ -1,6 +1,6 @@
 <template>
    <form-container
-      :submit="$store.dispatch('')"
+      @submit="$store.dispatch('user/login', {email, password})"
    >
       <h2 class="font-bold text-3xl">Sign in</h2>
       <div class="flex flex-col my-4">
