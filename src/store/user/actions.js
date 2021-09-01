@@ -5,7 +5,7 @@ export const actions = {
    async login({commit}, {email, password}) {
       try{
          const user = await signInWithEmailAndPassword(auth, email, password)
-         commit('')
+         commit('setUser', user)
       }catch(e){
          console.log(e)
       }
