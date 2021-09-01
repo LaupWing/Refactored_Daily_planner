@@ -3,11 +3,11 @@
       <h2 class="font-bold text-3xl">Sign in</h2>
       <div class="flex flex-col my-4">
          <app-field
-            value=""
+            :value="email"
             label="Email"
          />
          <app-field
-            value=""
+            :value="password"
             label="Password"
          />
       </div>
@@ -28,6 +28,13 @@ export default {
    name: 'SignIn',
    components:{
       FormContainer
-   }
+   },
+   data(){
+      return {
+         email: '',
+         password: ''
+      }
+   },
+
 }
 </script>
