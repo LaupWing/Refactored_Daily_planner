@@ -1,6 +1,6 @@
 <template>
    <form-container
-      @submit="$store.dispatch('user/login', {email, password})"
+      @submit="login"
    >
       <h2 class="font-bold text-3xl">Sign in</h2>
       <div class="flex flex-col my-4">
@@ -35,6 +35,22 @@ export default {
       return {
          email: '',
          password: ''
+      }
+   },
+   methods:{
+      login(){
+         if(this.email && this.password){
+            try{
+               this.$store.dispatch('user/login', {
+                  email: this.email,
+                  password: this.password
+               })
+            }catch(e){
+               console.log(e)
+            }
+         }else{
+            alert('Email and Password has te be filled in')
+         }
       }
    }
 }
