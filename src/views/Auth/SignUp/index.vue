@@ -45,6 +45,9 @@ export default {
    methods:{
       async signUp(){
          if(this.email && this.password && this.confirm_password){
+            if(this.password !== this.confirm_password){
+               return alert('Passwords doesnt match')
+            }
             try{
                await this.$store.dispatch('user/login', {
                   email: this.email,
