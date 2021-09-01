@@ -57,6 +57,7 @@ export default {
                })
             }catch(e){
                console.log(e)
+               this.feedback = e.message
             }
          }else{
             this.feedback = 'Email and Password has te be filled in'

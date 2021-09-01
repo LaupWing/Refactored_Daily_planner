@@ -10,7 +10,7 @@ export const actions = {
          throw new Error(e)
       }
    },
-   async signIn({commit}, {email, password}){
+   async signUp({commit}, {email, password}){
       try{
          const user = await createUserWithEmailAndPassword(auth, email, password)
          commit('setUser', user)
