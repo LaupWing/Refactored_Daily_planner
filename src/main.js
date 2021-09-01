@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import './firebase/init'
 import './index.css'
+import './registerGlobals'
 
 Vue.config.productionTip = false
 

@@ -1,7 +1,7 @@
 <template>
-   <div class="login">
+   <div class="m-auto">
       <form @submit.prevent="login">
-         <h2>Login</h2>
+         <h2 class="font-bold text-3xl">Sign in</h2>
          <div class="field">
             <label for="email">Email</label>
             <input type="email" name="email" v-model="email" />
