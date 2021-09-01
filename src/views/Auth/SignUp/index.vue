@@ -67,7 +67,7 @@ export default {
                console.log(e)
             }
          }else{
-            alert('Email and Password has te be filled in')
+            this.feedback = 'Email and Password has te be filled in'
          }
       }
    }
