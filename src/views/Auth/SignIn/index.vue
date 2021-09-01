@@ -11,7 +11,6 @@
             label="Password"
          />
       </div>
-      <p v-if="feedback">{{ feedback }}</p>
       <app-button>Submit</app-button>
       <p 
          class="italic text-xs text-right cursor-pointer mt-4"
