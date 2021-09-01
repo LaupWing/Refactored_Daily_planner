@@ -1,5 +1,5 @@
 <template>
-   <div id="app">
+   <div id="app" class="w-screen h-screen flex flex-col">
       <router-view />
    </div>
 </template>
