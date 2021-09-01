@@ -3,7 +3,7 @@ import { getters } from "./getters";
 import { mutations } from "./mutation";
 import { state } from "./state";
 
-export const auth = {
+export const user = {
    namespaced: true,
    state,
    getters,
