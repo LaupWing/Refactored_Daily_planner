@@ -16,6 +16,12 @@
             value=""
             label="Confirm Password"
          />
+         <p 
+            v-if="feedback"
+            class="text-sm text-red-400"
+         >
+            {{feedback}}
+         </p>
       </div>
       <app-button>Submit</app-button>
       <p 
@@ -46,10 +52,10 @@ export default {
       async signUp(){
          if(this.email && this.password && this.confirm_password){
             if(this.password !== this.confirm_password){
-               return alert('Passwords doesnt match')
+               return this.feedback = 'Password doesnt match'
             }
             try{
-               await this.$store.dispatch('user/login', {
+               await this.$store.dispatch('user/signIn', {
                   email: this.email,
                   password: this.password
                })
