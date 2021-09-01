@@ -1,5 +1,7 @@
 <template>
-   <form-container>
+   <form-container
+      @submit="signUp"
+   >
       <h2 class="font-bold text-3xl">Sign up</h2>
       <div class="flex flex-col my-4">
          <app-field
@@ -32,6 +34,33 @@ export default {
    name: 'SignUp',
    components:{
       FormContainer
+   },
+   data(){
+      return{
+         email: '',
+         password: '',
+         confirm_password: '',
+      }
+   },
+   methods:{
+      async signUp(){
+         if(this.email && this.password && this.confirm_password){
+            try{
+               await this.$store.dispatch('user/login', {
+                  email: this.email,
+                  password: this.password
+               })
+               
+               this.$router.push({
+                  name: 'Home'
+               })
+            }catch(e){
+               console.log(e)
+            }
+         }else{
+            alert('Email and Password has te be filled in')
+         }
+      }
    }
 }
 </script>
