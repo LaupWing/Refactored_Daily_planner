@@ -2,7 +2,7 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
 const auth = getAuth()
 
 export const actions = {
-   async login({commit}, {email, password}) {
+   async signIn({commit}, {email, password}) {
       try{
          const user = await signInWithEmailAndPassword(auth, email, password)
          commit('setUser', user)

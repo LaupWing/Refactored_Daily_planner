@@ -1,6 +1,6 @@
 <template>
    <form-container
-      @submit="login"
+      @submit="signIn"
    >
       <h2 class="font-bold text-3xl">Sign in</h2>
       <div class="flex flex-col my-4">
@@ -44,10 +44,10 @@ export default {
       }
    },
    methods:{
-      async login(){
+      async signIn(){
          if(this.email && this.password){
             try{
-               await this.$store.dispatch('user/login', {
+               await this.$store.dispatch('user/signIn', {
                   email: this.email,
                   password: this.password
                })
