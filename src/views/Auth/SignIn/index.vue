@@ -38,12 +38,16 @@ export default {
       }
    },
    methods:{
-      login(){
+      async login(){
          if(this.email && this.password){
             try{
-               this.$store.dispatch('user/login', {
+               await this.$store.dispatch('user/login', {
                   email: this.email,
                   password: this.password
+               })
+               
+               this.$router.push({
+                  name: 'Home'
                })
             }catch(e){
                console.log(e)
