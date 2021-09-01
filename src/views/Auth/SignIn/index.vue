@@ -3,11 +3,11 @@
       <h2 class="font-bold text-3xl">Sign in</h2>
       <div class="flex flex-col my-4">
          <app-field
-            :value="email"
+            :value.sync="email"
             label="Email"
          />
          <app-field
-            :value="password"
+            :value.sync="password"
             label="Password"
          />
       </div>
