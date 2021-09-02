@@ -48,6 +48,7 @@ export default {
       async signIn(){
          if(this.email && this.password){
             try{
+               console.log(this.email, this.password)
                await this.$store.dispatch('user/signIn', {
                   email: this.email,
                   password: this.password

@@ -4,15 +4,15 @@ import {
 } from '../../firebase/utils'
 
 export const actions = {
-   async signIn({dispatch}, {email, password}) {
+   async signIn({commit}, auth_obj) {
       try{
-         const user = await auth.sign_in(email, password)
+         const user = await auth.sign_in(auth_obj)
          commit('setUser', user)
       }catch(e){
          throw new Error(e)
       }
    },
-   async signUp({dispatch}, {email, password}){
+   async signUp({commit}, {email, password}){
       try{
          const user = await auth.create(email, password)
          commit('setUser', user)
@@ -22,8 +22,6 @@ export const actions = {
    },
    async getUser({commit}, id){
       const user = await firestore.get_user(id)
-      console.log(user.exists())
-      console.log(user)
       commit('setUser', user.data())
    },
    async createUserInFirestore({dispatch}, id){
