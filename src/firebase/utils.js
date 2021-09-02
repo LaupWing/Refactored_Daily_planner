@@ -3,11 +3,7 @@ import {
    signInWithEmailAndPassword, 
    createUserWithEmailAndPassword 
 } from 'firebase/auth'
-import {firebase} from './init'
-
-console.log(firebase)
-
-import {getDoc} from 'firebase/firestore'
+import {doc, getFirestore} from 'firebase/firestore'
 
 export const auth = {
    _auth: getAuth(),
@@ -19,10 +15,9 @@ export const auth = {
    },
 }
 
-console.log(getDoc)
-
-export const db = {
-   test(id){
+export const firestore = {
+   _firestore: getFirestore(),
+   user(id){
       return getDoc(id)
    }  
 }
