@@ -32,11 +32,15 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-   // if (to.name !== 'Auth'){
-   //    next()
-   // }
-   console.log(store.state.user)
-   next()
+   if (to.name !== 'Auth' && store.state.user.user){
+      next()
+   }else{
+      if(to.name === 'Auth'){
+         next()
+      }else{
+         next({name: 'Auth'})
+      }
+   }
  })
 
 

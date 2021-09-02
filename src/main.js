@@ -3,17 +3,17 @@ import './firebase/init'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import { getAuth, onAuthStateChanged } from 'firebase/auth'
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
 import './index.css'
 import './registerGlobals'
 
 Vue.config.productionTip = false
 
 let app = null
-
+// signOut(getAuth())
 onAuthStateChanged(getAuth(), async (user) => {
    if (!app) {
-      await store.dispatch('user/getUser', user.uid)
+      await store.commit('user/setUser', user)
       console.log(user)
       app = new Vue({
          store,
