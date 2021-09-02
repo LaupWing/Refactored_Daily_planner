@@ -24,4 +24,10 @@ export const firestore = {
    get_user(id){
       return getDoc(doc(this._firestore, 'users', id))
    },  
+   add_user(id){
+      return getDoc(doc(this._firestore, 'users', id))
+   },  
+   update_user(id){
+      return getDoc(doc(this._firestore, 'users', id))
+   },  
 }
