@@ -1,6 +1,7 @@
 <template>
    <div 
-      class="relative overflow-y-hidden flex"
+      id="planner"
+      class="relative overflow-y-auto flex"
       :style="{
          height: '50vh'
       }"
@@ -27,3 +28,10 @@ export default {
    }
 }
 </script>
+
+<style scoped>
+#planner::-webkit-scrollbar {
+   width: 0px;
+}
+   
+</style>
