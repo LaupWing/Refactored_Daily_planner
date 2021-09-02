@@ -46,6 +46,7 @@ export default {
          email: '',
          password: '',
          confirm_password: '',
+         feedback: ''
       }
    },
    methods:{
