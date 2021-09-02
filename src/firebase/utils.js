@@ -24,13 +24,13 @@ export const auth = {
 
 export const firestore = {
    _firestore: getFirestore(),
-   get_user(id){
-      return getDoc(doc(this._firestore, 'users', id))
+   get_doc(collection, id){
+      return getDoc(doc(this._firestore, collection, id))
    },  
-   add_user(data){
-      return addDoc(collection(this._firestore, 'users'), data)
+   add_doc(collection, data){
+      return addDoc(collection(this._firestore, collection), data)
    },  
-   update_user(id, data){
-      return setDoc(doc(this._firestore, 'users', id), data)
+   update_doc(collection, id, data){
+      return setDoc(doc(this._firestore, collection, id), data)
    },  
 }

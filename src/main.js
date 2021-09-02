@@ -13,7 +13,7 @@ let app = null
 
 onAuthStateChanged(getAuth(), async (user) => {
    if (!app) {
-      // await store.dispatch('user')
+      await store.dispatch('user/getUser', user.uid)
       console.log(user)
       app = new Vue({
          store,

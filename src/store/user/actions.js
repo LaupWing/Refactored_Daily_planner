@@ -22,7 +22,9 @@ export const actions = {
    },
    async getUser({commit}, id){
       const user = await firestore.get_user(id)
-      commit('setUser', user)
+      console.log(user.exists())
+      console.log(user)
+      commit('setUser', user.data())
    },
    async createUserInFirestore({dispatch}, id){
 
