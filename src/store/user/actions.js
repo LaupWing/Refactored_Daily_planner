@@ -1,4 +1,9 @@
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth'
+import { 
+   getAuth, 
+   signInWithEmailAndPassword, 
+   createUserWithEmailAndPassword 
+} from 'firebase/auth'
+
 const auth = getAuth()
 
 export const actions = {
@@ -17,5 +22,8 @@ export const actions = {
       }catch(e){
          throw new Error(e)
       }
+   },
+   async getUser({commit}, id){
+
    }
 }

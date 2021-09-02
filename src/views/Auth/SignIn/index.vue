@@ -56,7 +56,6 @@ export default {
                   name: 'Home'
                })
             }catch(e){
-               console.log(e)
                this.feedback = e.message
             }
          }else{

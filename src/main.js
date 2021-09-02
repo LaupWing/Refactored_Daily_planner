@@ -11,7 +11,7 @@ Vue.config.productionTip = false
 
 let app = null
 
-onAuthStateChanged(getAuth(), () => {
+onAuthStateChanged(getAuth(), async (user) => {
    if (!app) {
       app = new Vue({
          store,
