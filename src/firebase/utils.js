@@ -6,7 +6,10 @@ import {
 import {
    doc, 
    getFirestore,
-   getDoc
+   getDoc,
+   addDoc,
+   setDoc,
+   collection
 } from 'firebase/firestore'
 
 export const auth = {
@@ -24,10 +27,10 @@ export const firestore = {
    get_user(id){
       return getDoc(doc(this._firestore, 'users', id))
    },  
-   add_user(id){
-      return getDoc(doc(this._firestore, 'users', id))
+   add_user(data){
+      return addDoc(collection(this._firestore, 'users'), data)
    },  
-   update_user(id){
-      return getDoc(doc(this._firestore, 'users', id))
+   update_user(id, data){
+      return setDoc(doc(this._firestore, 'users', id), data)
    },  
 }
