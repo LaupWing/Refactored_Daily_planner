@@ -1,6 +1,7 @@
 <template>
    <ul>
       <li 
+         class="text-right mr-4 text-xl"
          v-for="timestamp in timestamps"
          :data-time="timestamp"
          :key="timestamp"

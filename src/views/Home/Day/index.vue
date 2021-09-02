@@ -1,18 +1,29 @@
 <template>
    <div 
-      class="bg-white relative overflow-y-hidden"
+      class="relative overflow-y-hidden flex"
       :style="{
-         height: '50vh',
-         width: '400px'
+         height: '50vh'
       }"
    >
+      <timeline/>
+      <div 
+         :style="{
+            width: '400px'
+         }"
+         class="bg-white"
+      >
 
-
+      </div>
    </div>
 </template>
 
 <script>
+import Timeline from './Timeline'
+
 export default {
-   name: 'Day'
+   name: 'Day',
+   components:{
+      Timeline
+   }
 }
 </script>
