@@ -6,7 +6,6 @@ import store from './store'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import './index.css'
 import './registerGlobals'
-import test from './firebase/utils'
 
 Vue.config.productionTip = false
 
@@ -14,6 +13,8 @@ let app = null
 
 onAuthStateChanged(getAuth(), async (user) => {
    if (!app) {
+      // await store.dispatch('user')
+      console.log(user)
       app = new Vue({
          store,
          router,
