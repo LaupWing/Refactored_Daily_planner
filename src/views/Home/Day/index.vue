@@ -1,5 +1,11 @@
 <template>
-   <div>
+   <div 
+      class="bg-white"
+      :style="{
+         height: '50vh',
+         width: '400px'
+      }"
+   >
 
 
    </div>
