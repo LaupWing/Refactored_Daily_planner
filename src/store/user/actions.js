@@ -1,23 +1,20 @@
 import { 
-   getAuth, 
-   signInWithEmailAndPassword, 
-   createUserWithEmailAndPassword 
-} from 'firebase/auth'
-
-const auth = getAuth()
+   auth,
+   firestore 
+} from '../../firebase/utils'
 
 export const actions = {
-   async signIn({commit}, {email, password}) {
+   async signIn({dispatch}, {email, password}) {
       try{
-         const user = await signInWithEmailAndPassword(auth, email, password)
+         const user = await auth.sign_in(email, password)
          commit('setUser', user)
       }catch(e){
          throw new Error(e)
       }
    },
-   async signUp({commit}, {email, password}){
+   async signUp({dispatch}, {email, password}){
       try{
-         const user = await createUserWithEmailAndPassword(auth, email, password)
+         const user = await auth.create(email, password)
          commit('setUser', user)
       }catch(e){
          throw new Error(e)
@@ -25,5 +22,8 @@ export const actions = {
    },
    async getUser({commit}, id){
 
+   },
+   async createUserInFirestore({dispatch}, id){
+      
    }
 }

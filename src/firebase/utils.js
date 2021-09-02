@@ -23,5 +23,5 @@ export const firestore = {
    _firestore: getFirestore(),
    get_user(id){
       return getDoc(doc(this._firestore, 'users', id))
-   }  
+   },  
 }
