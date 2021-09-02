@@ -3,6 +3,9 @@ import {
    signInWithEmailAndPassword, 
    createUserWithEmailAndPassword 
 } from 'firebase/auth'
+import {firebase} from './init'
+
+console.log(firebase)
 
 import {getDoc} from 'firebase/firestore'
 
@@ -16,7 +19,9 @@ export const auth = {
    },
 }
 
-export const firestore = {
+console.log(getDoc)
+
+export const db = {
    test(id){
       return getDoc(id)
    }  

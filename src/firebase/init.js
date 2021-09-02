@@ -10,4 +10,4 @@ var firebaseConfig = {
    appId: "1:307529607050:web:bb6a48978d7f0e11"
 }
 
-initializeApp(firebaseConfig)
+export const firebase = initializeApp(firebaseConfig)
