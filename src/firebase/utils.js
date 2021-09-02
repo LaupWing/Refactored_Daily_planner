@@ -21,7 +21,7 @@ export const auth = {
 
 export const firestore = {
    _firestore: getFirestore(),
-   user(id){
+   get_user(id){
       return getDoc(doc(this._firestore, 'users', id))
    }  
 }
