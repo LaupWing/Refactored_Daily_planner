@@ -84,7 +84,9 @@ export default {
    },
    created(){
       this.offset = this.container.offsetHeight/2
-      console.log(this.container.offsetHeight)
+      window.onresize = ()=>{
+         this.offset = this.container.offsetHeight/2
+      }
    }
 };
 </script>
