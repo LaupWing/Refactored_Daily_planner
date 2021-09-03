@@ -1,13 +1,13 @@
-import { 
-   auth,
-   firestore 
-} from '../../firebase/utils'
+import { firestore } from '../../firebase/utils'
 
 export const actions = {
-   async signIn({commit}, auth_obj) {
+   async getData({commit, rootState}) {
       try{
-         const user = await auth.sign_in(auth_obj)
-         commit('setUser', user)
+         console.log(rootState)
+         const planner = await firestore.get_doc('planner', rootState.user.uid)
+         console.log(planner)
+         console.log(planner.data())
+         // commit('setUser', user)
       }catch(e){
          throw new Error(e)
       }

@@ -14,6 +14,6 @@
 
 <script>
 export default {
-   name: 'Circle'
+   name: 'CircleIcon'
 }
 </script>

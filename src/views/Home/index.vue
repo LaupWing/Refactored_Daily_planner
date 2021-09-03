@@ -12,5 +12,8 @@ export default {
    components: {
       Day
    },
+   created(){
+      this.$store.dispatch('planner/getData')
+   }
 };
 </script>
