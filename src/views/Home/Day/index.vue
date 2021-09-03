@@ -19,17 +19,19 @@
       >
 
       </div>
-      <div></div>
+      <controls/>
    </div>
 </template>
 
 <script>
 import Timeline from './Timeline'
+import Controls from './Controls'
 
 export default {
    name: 'Day',
    components:{
-      Timeline
+      Timeline,
+      Controls
    },
    data(){
       return{
