@@ -15,7 +15,7 @@
          :style="{
             width: '400px'
          }"
-         class="bg-white flex-1"
+         class="bg-white flex-1 mx-4"
       >
 
       </div>
