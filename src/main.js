@@ -5,7 +5,7 @@ import router from './router'
 import store from './store'
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
 import './index.css'
-import './registerGlobals'
+import './registerComponents'
 
 Vue.config.productionTip = false
 
