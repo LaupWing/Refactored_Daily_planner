@@ -1,10 +1,16 @@
 <template>
-   <ul>
+   <ul
+      class="flex flex-col flex-shrink-0"
+      :style="{
+         marginTop: offset + 'px',
+         marginBottom: offset + 'px',
+      }"
+   >
       <li 
-         class="text-right mr-4 opacity-30 text-xl"
-         v-for="timestamp in timestamps"
+         class="text-right mr-4 opacity-30 text-xl flex-shrink-0"
+         v-for="(timestamp, i) in timestamps"
          :data-time="timestamp"
-         :key="timestamp"
+         :key="i"
       >
          {{timestamp.includes('30') ? '-' : timestamp}}
       </li>
@@ -14,8 +20,15 @@
 <script>
 export default {
    name: "Timeline",
+   props:{
+      container:{
+         type: HTMLDivElement,
+         required: true
+      }
+   },
    data(){
       return{
+         offset: 0,
          timestamps: [
             '00:00', 
             '00:30', 
@@ -68,6 +81,10 @@ export default {
             '00:00'
          ]
       }
+   },
+   created(){
+      this.offset = this.container.offsetHeight/2
+      console.log(this.container.offsetHeight)
    }
 };
 </script>

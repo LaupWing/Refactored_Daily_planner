@@ -1,17 +1,21 @@
 <template>
    <div 
       id="planner"
-      class="relative overflow-y-auto flex"
+      class="relative overflow-y-auto flex items-start"
       :style="{
          height: '50vh'
       }"
+      ref="container"
    >
-      <timeline/>
+      <timeline
+         v-if="mounted"
+         :container="$refs.container"
+      />
       <div 
          :style="{
             width: '400px'
          }"
-         class="bg-white"
+         class="bg-white flex-1"
       >
 
       </div>
@@ -25,6 +29,14 @@ export default {
    name: 'Day',
    components:{
       Timeline
+   },
+   data(){
+      return{
+         mounted: false
+      }
+   },
+   mounted(){
+      this.mounted = true
    }
 }
 </script>
