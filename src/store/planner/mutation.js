@@ -1,5 +1,6 @@
 export const mutations = {
-   setPlanner(state, planner){
-      state.planner = planner
+   setPlanner(state, data){
+      state.colorLabels = data.colorLabels
+      state.dailyTasks = data.dailyTasks
    }
 }
