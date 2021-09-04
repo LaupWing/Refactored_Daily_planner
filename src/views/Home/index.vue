@@ -12,8 +12,8 @@ export default {
    components: {
       Day
    },
-   created(){
-      this.$store.dispatch('planner/getData')
+   async created(){
+      await this.$store.dispatch('planner/getData')
    }
 };
 </script>
