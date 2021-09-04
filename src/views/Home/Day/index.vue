@@ -8,8 +8,10 @@
       ref="container"
    >
       <timeline
-         v-if="mounted"
+         v-if="container_mounted"
          :container="$refs.container"
+         ref="timeline"
+         @mounted="createTimelinePositions"
       />
       <div 
          :style="{
@@ -17,14 +19,9 @@
          }"
          class="flex-1 mx-4 relative"
       >
-         <div
-            class="w-full absolute rounded h-72 border-2 border-main-font"
-            :style="{
-               top: '250px'
-            }"
-         >
-
-         </div>
+         <task
+            v-if="timeline_mounted"
+         />
       </div>
       <controls/>
    </div>
@@ -33,20 +30,28 @@
 <script>
 import Timeline from './Timeline'
 import Controls from './Controls'
+import Task from './Task'
 
 export default {
    name: 'Day',
    components:{
       Timeline,
-      Controls
+      Controls,
+      Task
    },
    data(){
       return{
-         mounted: false
+         container_mounted: false,
+         timeline_mounted: false,
+      }
+   },
+   methods:{
+      createTimelinePositions(e){
+         console.log(e)
       }
    },
    mounted(){
-      this.mounted = true
+      this.container_mounted = true
    }
 }
 </script>

@@ -82,11 +82,13 @@ export default {
          ]
       }
    },
-   created(){
+   mounted(){
+      this.$emit('mounted')
       this.offset = this.container.offsetHeight/2
       window.onresize = ()=>{
          this.offset = this.container.offsetHeight/2
       }
+
    }
 };
 </script>
