@@ -13,11 +13,18 @@
       />
       <div 
          :style="{
-            width: '400px'
+            width: '350px'
          }"
-         class="bg-white flex-1 mx-4"
+         class="flex-1 mx-4"
       >
+         <div
+            class="w-full rounded h-72 border-2 border-main-font"
+            :style="{
 
+            }"
+         >
+
+         </div>
       </div>
       <controls/>
    </div>
