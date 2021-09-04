@@ -7,6 +7,12 @@
 
 <script>
 export default {
-   name: 'Task'
+   name: 'Task',
+   props:{
+      timeline:{
+         type: Array,
+         required: true
+      }
+   }
 }
 </script>
