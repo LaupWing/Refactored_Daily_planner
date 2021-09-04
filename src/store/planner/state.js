@@ -1,3 +1,4 @@
 export const state = {
-   planner: null
+   colorLabels: null,
+   dailyTasks: null,
 }
