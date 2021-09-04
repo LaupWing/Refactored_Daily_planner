@@ -15,12 +15,12 @@
          :style="{
             width: '350px'
          }"
-         class="flex-1 mx-4"
+         class="flex-1 mx-4 relative"
       >
          <div
-            class="w-full rounded h-72 border-2 border-main-font"
+            class="w-full absolute rounded h-72 border-2 border-main-font"
             :style="{
-
+               top: '250px'
             }"
          >
 
