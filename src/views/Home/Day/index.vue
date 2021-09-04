@@ -20,7 +20,8 @@
          class="flex-1 mx-4 relative"
       >
          <task
-            v-if="timeline_mounted"
+            v-if="timeline_positions"
+            :timeline_positions="timeline_positions"
          />
       </div>
       <controls/>
@@ -42,12 +43,20 @@ export default {
    data(){
       return{
          container_mounted: false,
-         timeline_mounted: false,
+         timeline_positions: false,
       }
    },
    methods:{
       createTimelinePositions(e){
-         console.log(e)
+         this.timeline_positions = Array.from(
+            e.querySelectorAll('li')
+         ).map((li) => {
+            return {
+               time: li.dataset.time,
+               height: li.offsetHeight,
+               midpoint: li.offsetTop + li.offsetHeight / 2,
+            }
+         })
       }
    },
    mounted(){

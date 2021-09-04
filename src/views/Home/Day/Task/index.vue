@@ -9,7 +9,7 @@
 export default {
    name: 'Task',
    props:{
-      timeline:{
+      timeline_positions:{
          type: Array,
          required: true
       }
