@@ -61,6 +61,7 @@ export default {
    },
    mounted(){
       this.container_mounted = true
+      console.log(this.$store.state.planner.dailyTasks)
    }
 }
 </script>
@@ -69,5 +70,4 @@ export default {
 #planner::-webkit-scrollbar {
    width: 0px;
 }
-   
 </style>

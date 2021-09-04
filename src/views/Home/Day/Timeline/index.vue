@@ -7,7 +7,7 @@
       }"
    >
       <li 
-         class="text-right opacity-30 text-xl flex-shrink-0"
+         class="text-right opacity-30 text-xl flex-shrink-0 py-3"
          v-for="(timestamp, i) in timestamps"
          :data-time="timestamp"
          :key="i"
