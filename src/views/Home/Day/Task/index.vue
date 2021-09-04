@@ -1,6 +1,17 @@
 <template>
+   <!-- position: absolute;
+   width: 90%;
+   display: flex;
+   flex-direction: column;
+   transition: 0.5s ease-out;
+   background: orange;
+   color: white;
+   border-radius: 6px;
+   opacity: 0.15;
+   overflow: hidden;
+   user-select: none; -->
    <div
-      class="task"
+      class="absolute w-full flex flex-col duration-500 select-none"
       :class="{
          expanded: expanded === task,
          opacity: checkVisibleTask || checkPopup,
