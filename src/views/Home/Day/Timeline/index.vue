@@ -2,8 +2,8 @@
    <ul
       class="flex flex-col flex-shrink-0"
       :style="{
-         marginTop: offset + 'px',
-         marginBottom: offset + 'px',
+         paddingTop: offset + 'px',
+         paddingBottom: offset + 'px',
       }"
    >
       <li 

@@ -45,26 +45,24 @@ export default {
       Task
    },
    computed:{
-      computed:{
-         tasksOfToday(){
-            const tasks = this.$store.state.planner.dailyTasks 
+      tasksOfToday(){
+         const tasks = this.$store.state.planner.dailyTasks 
 
-            if(tasks){
-               return tasks
-                  .filter(task=>{
-                     const date = new Date()
-                     const dateNumber =  date.getDay()
-                     const currentDay = days[dateNumber]
-                     
-                     const checkDay = task.days.some(day=>day.day===currentDay)
-                     if(checkDay){
-                        return task
-                     }
-                  })
-            }
-            return null
+         if(tasks){
+            return tasks
+               .filter(task=>{
+                  const date = new Date()
+                  const dateNumber =  date.getDay()
+                  const currentDay = days[dateNumber]
+                  
+                  const checkDay = task.days.some(day=>day.day===currentDay)
+                  if(checkDay){
+                     return task
+                  }
+               })
          }
-      }
+         return null
+      } 
    },
    data(){
       return{
@@ -87,8 +85,6 @@ export default {
    },
    mounted(){
       this.container_mounted = true
-      console.log(days)
-      console.log(this.$store.state.planner.dailyTasks)
    }
 }
 </script>
