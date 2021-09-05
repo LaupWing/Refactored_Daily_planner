@@ -5,8 +5,8 @@
          @click.native="up"
       />
       <icon-circle 
-         class="my-2 opacity-25 cursor-pointer hover:opacity-100 duration-200"
-         :class="showed_task ? 'text-main-font' : 'text-gray-300' "
+         class="my-2 opacity-25 duration-200"
+         :class="showed_task ? 'text-main-font cursor-pointer hover:opacity-100' : 'text-gray-300' "
       />
       <icon-down class="opacity-25 text-main-font cursor-pointer hover:opacity-100 duration-200"/>
    </div>
@@ -39,7 +39,6 @@ export default {
          const tasks = this.tasks_elements
          if(this.showed_task){
             const index = tasks.indexOf(this.showed_task)
-            console.log(index)
             const dest = index === 0 ? (tasks.length-1) : (index-1) 
             scrollTo = Number((tasks[dest].offsetTop + (tasks[dest].offsetHeight/2)))
          }else{

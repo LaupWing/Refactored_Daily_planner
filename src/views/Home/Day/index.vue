@@ -164,4 +164,7 @@ export default {
 #planner::-webkit-scrollbar {
    width: 0px;
 }
+#planner{
+   scroll-behavior: smooth;
+}
 </style>
