@@ -23,7 +23,6 @@
             v-for="(task, index) in tasksOfToday"
             :key="index"
             :task="task"
-            :today="today"
             v-if="timeline_positions"
             :timeline_positions="timeline_positions"
          />

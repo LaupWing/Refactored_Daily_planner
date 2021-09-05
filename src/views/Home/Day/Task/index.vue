@@ -20,12 +20,8 @@ export default {
    },
    computed:{
       top(){
-         
+
       }
-   },
-   created(){
-      console.log(this.task)
-      console.log(this.timeline_positions)
    }
 }
 </script>
