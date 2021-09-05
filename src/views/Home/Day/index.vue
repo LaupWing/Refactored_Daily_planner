@@ -77,7 +77,8 @@ export default {
          width: '350px',
          height: 0,
          scrolled: 0,
-         midpoint: 0
+         midpoint: 0,
+         showed_task: null
       }
    },
    methods:{
