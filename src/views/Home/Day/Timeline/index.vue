@@ -28,6 +28,10 @@ export default {
          type: HTMLDivElement,
          required: true
       },
+      midpoint:{
+         type: Number,
+         required: true
+      },
       showed_task:{
          required: true
       }

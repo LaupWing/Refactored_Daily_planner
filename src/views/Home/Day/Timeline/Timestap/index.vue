@@ -18,7 +18,11 @@ export default {
       },
       showed_task:{
          required: true
-      }
+      },
+      midpoint:{
+         type: Number,
+         required: true
+      },
    },
    computed:{
       showed(){
