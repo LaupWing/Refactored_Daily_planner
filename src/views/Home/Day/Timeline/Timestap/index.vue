@@ -1,5 +1,6 @@
 <template>
    <li 
+      ref="timestamp"
       class="text-right text-xl flex-shrink-0 py-3"
       :class="showed ? 'opacity-100' : 'opacity-30' "
       :data-time="timestamp"
@@ -26,6 +27,14 @@ export default {
    },
    computed:{
       showed(){
+         if(!this.mounted){
+            return
+         }
+         const liMin = this.$refs.timestamp.offsetTop
+         const liMax = this.$refs.timestamp.offsetTop + this.$el.offsetHeight
+         if(this.midpoint >= liMin && this.midpoint <= liMax){
+            return true   
+         }
          if(!this.showed_task){
             return false
          }
@@ -37,11 +46,17 @@ export default {
          const min = taskOffsetTop - (quarterInPx*1.2) 
          const max = taskMaxpoint  + (quarterInPx*1.2)  
 
-         const liMin = this.$el.offsetTop
-         const liMax = this.$el.offsetTop + this.$el.offsetHeight
 
          return liMin >= min && liMax <= max
       }
+   },
+   data(){
+      return{
+         mounted: false
+      }
+   },
+   mounted(){
+      this.mounted = true
    }
 }
 </script>

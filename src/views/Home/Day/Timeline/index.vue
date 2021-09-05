@@ -10,6 +10,7 @@
          v-for="(timestamp, i) in timestamps"
          :timestamp="timestamp"
          :showed_task="showed_task"
+         :midpoint="midpoint"
          :key="i"
       />
    </ul>
