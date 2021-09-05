@@ -9,6 +9,7 @@
       <timestamp
          v-for="(timestamp, i) in timestamps"
          :timestamp="timestamp"
+         :showed_task="showed_task"
          :key="i"
       />
    </ul>
@@ -25,6 +26,9 @@ export default {
    props:{
       container:{
          type: HTMLDivElement,
+         required: true
+      },
+      showed_task:{
          required: true
       }
    },

@@ -11,6 +11,7 @@
       <timeline
          v-if="container_mounted"
          :container="$refs.container"
+         :showed_task="showed_task"
          ref="timeline"
          @mounted="createTimelinePositions"
       />

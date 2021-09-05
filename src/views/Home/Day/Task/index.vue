@@ -39,7 +39,6 @@ export default {
       },
       show(){
          if(this.midpoint >= this.top && this.midpoint <= (this.top + this.height)){
-            console.log(this.$el)
             this.$emit('set_showed_task', this.$el)
             return true
          }

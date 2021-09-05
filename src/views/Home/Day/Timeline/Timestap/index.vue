@@ -14,6 +14,9 @@ export default {
       timestamp:{
          type: String,
          required: true
+      },
+      showed_task:{
+         required: true
       }
    },
    methods:{
