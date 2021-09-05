@@ -1,5 +1,6 @@
 <template>
    <div
+      data-task
       class="absolute w-full flex justify-between flex-col duration-500 select-none h-36 bg-main-task-pink border-2 border-main-font rounded-xl py-1 px-2"
       :class="show ? 'opacity-100 shadow' : 'opacity-25' "
       :style="{

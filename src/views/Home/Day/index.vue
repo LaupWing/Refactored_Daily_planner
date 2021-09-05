@@ -23,23 +23,26 @@
          class="flex-1 mx-4 relative"
       >
          <task
+            v-if="timeline_positions"
             v-for="(task, index) in tasksOfToday"
             :key="index"
             :task="task"
             :midpoint="midpoint"
-            v-if="timeline_positions"
             :timeline_positions="timeline_positions"
             @disable_showed_task="set_showed_task_null"
             @set_showed_task="showed_task = $event"
          />
          <indicator
+            v-if="container_mounted"
             :midpoint="midpoint"
             :width="width"
-            v-if="container_mounted"
             :container="$refs.container"
          />
       </div>
-      <controls/>
+      <controls
+         v-if="container_mounted"
+         :container="$refs.container"
+      />
    </div>
 </template>
 

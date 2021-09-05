@@ -1,7 +1,7 @@
 <template>
    <li 
       ref="timestamp"
-      class="text-right text-xl flex-shrink-0 py-3"
+      class="text-right text-xl flex-shrink-0 py-3 duration-200"
       :class="showed ? 'opacity-100' : 'opacity-30' "
       :data-time="timestamp"
    >
