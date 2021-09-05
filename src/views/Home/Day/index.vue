@@ -27,6 +27,9 @@
             :timeline_positions="timeline_positions"
          />
       </div>
+      <!-- <div class="absolute top-0"> -->
+      <indicator/>
+      <!-- </div> -->
       <controls/>
    </div>
 </template>
@@ -34,6 +37,7 @@
 <script>
 import Timeline from './Timeline'
 import Controls from './Controls'
+import Indicator from './Indicator'
 import Task from './Task'
 import {days} from '@/utils/date'
 
@@ -42,7 +46,8 @@ export default {
    components:{
       Timeline,
       Controls,
-      Task
+      Task,
+      Indicator
    },
    computed:{
       tasksOfToday(){
