@@ -1,8 +1,9 @@
 <template>
    <div
-      class="absolute w-full flex flex-col duration-500 select-none h-36 bg-red-400"
+      class="absolute w-full flex flex-col duration-500 select-none h-36 bg-main-task-pink border-2 border-main-font rounded-xl opacity-25"
       :style="{
-         top: `${calculatePoint(task.time.begin)}px`
+         top: `${calculatePoint(task.time.begin)}px`,
+         height: `${calculatePoint(task.time.end) - calculatePoint(task.time.begin)}px`
       }"
    >
    </div>
@@ -21,11 +22,6 @@ export default {
          required: true
       }
    },
-   computed:{
-      top(){
-
-      }
-   },
    methods:{
       calculatePoint(state) {
          const li = this.timeline_positions.find((li) => {
@@ -39,10 +35,6 @@ export default {
          const point = li.midpoint + calcMinutes
          return point
       },
-   },
-   created(){
-      console.log(this.task)
-      console.log(this.calculatePoint(this.task.time.begin))
    }
 }
 </script>
