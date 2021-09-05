@@ -39,9 +39,10 @@ export default {
       },
       show(){
          if(this.midpoint >= this.top && this.midpoint <= (this.top + this.height)){
-            this.$emit('set_show_task', this.$el)
+            this.$emit('set_showed_task', this.$el)
             return true
          }
+         this.$emit('disable_showed_task', this.$el)
          return false
       }
    },

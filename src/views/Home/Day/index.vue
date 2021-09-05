@@ -27,6 +27,12 @@
             :midpoint="midpoint"
             v-if="timeline_positions"
             :timeline_positions="timeline_positions"
+            @disable_showed_task="()=>{
+               if($event === showed_task){
+                  showed_task = null
+               }
+            }"
+            @set_showed_task="showed_task = $event"
          />
          <indicator
             :midpoint="midpoint"
