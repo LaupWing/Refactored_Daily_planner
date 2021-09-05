@@ -15,7 +15,7 @@
       />
       <div 
          :style="{
-            width: '350px'
+            width
          }"
          class="flex-1 mx-4 relative"
       >
@@ -26,9 +26,13 @@
             v-if="timeline_positions"
             :timeline_positions="timeline_positions"
          />
+         <indicator
+            :width="width"
+            v-if="container_mounted"
+            :container="$refs.container"
+         />
       </div>
       <!-- <div class="absolute top-0"> -->
-      <!-- <indicator/> -->
       <!-- </div> -->
       <controls/>
    </div>
@@ -69,7 +73,8 @@ export default {
       return{
          container_mounted: false,
          timeline_positions: false,
-         today: days[new Date().getDay()]
+         today: days[new Date().getDay()],
+         width: '350px'
       }
    },
    methods:{
