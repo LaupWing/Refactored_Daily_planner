@@ -27,11 +27,7 @@
             :midpoint="midpoint"
             v-if="timeline_positions"
             :timeline_positions="timeline_positions"
-            @disable_showed_task="()=>{
-               if($event === showed_task){
-                  showed_task = null
-               }
-            }"
+            @disable_showed_task="set_showed_task_null"
             @set_showed_task="showed_task = $event"
          />
          <indicator
@@ -90,6 +86,11 @@ export default {
       }
    },
    methods:{
+      set_showed_task_null(e){
+         if(e === this.showed_task){
+            this.showed_task = null
+         }
+      },
       createTimelinePositions(e){
          this.timeline_positions = Array.from(
             e.querySelectorAll('li')
