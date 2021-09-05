@@ -1,11 +1,14 @@
 <template>
    <div class="flex flex-col sticky w-8 top-1/2 transform -translate-y-2/4">
       <icon-up 
-         class="opacity-25 cursor-pointer hover:opacity-100 duration-200"
+         class="opacity-25 text-main-font cursor-pointer hover:opacity-100 duration-200"
          @click.native="up"
       />
-      <icon-circle class="my-2 opacity-25 cursor-pointer hover:opacity-100 duration-200"/>
-      <icon-down class="opacity-25 cursor-pointer hover:opacity-100 duration-200"/>
+      <icon-circle 
+         class="my-2 opacity-25 cursor-pointer hover:opacity-100 duration-200"
+         :class="showed_task ? 'text-main-font' : 'text-gray-300' "
+      />
+      <icon-down class="opacity-25 text-main-font cursor-pointer hover:opacity-100 duration-200"/>
    </div>
 </template>
 

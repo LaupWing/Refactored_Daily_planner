@@ -1,6 +1,6 @@
 <template>
    <ul
-      class="flex flex-col flex-shrink-0"
+      class="flex flex-col flex-shrink-0 text-main-font"
       :style="{
          paddingTop: offset + 'px',
          paddingBottom: offset + 'px',
