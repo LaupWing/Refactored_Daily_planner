@@ -12,7 +12,15 @@ export default {
       timeline_positions:{
          type: Array,
          required: true
+      },
+      task:{
+         type: Object,
+         required: true
       }
+   },
+   created(){
+      console.log(this.task)
+      console.log(this.timeline_positions)
    }
 }
 </script>

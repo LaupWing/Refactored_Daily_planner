@@ -20,6 +20,9 @@
          class="flex-1 mx-4 relative"
       >
          <task
+            v-for="(task, index) in tasksOfToday"
+            :key="index"
+            :task="task"
             v-if="timeline_positions"
             :timeline_positions="timeline_positions"
          />
@@ -45,7 +48,7 @@ export default {
       computed:{
          tasksOfToday(){
             const tasks = this.$store.state.planner.dailyTasks 
-            
+
             if(tasks){
                return tasks
                   .filter(task=>{
