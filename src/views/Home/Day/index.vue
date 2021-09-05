@@ -24,6 +24,7 @@
             v-for="(task, index) in tasksOfToday"
             :key="index"
             :task="task"
+            :midpoint="midpoint"
             v-if="timeline_positions"
             :timeline_positions="timeline_positions"
          />
@@ -73,7 +74,10 @@ export default {
          container_mounted: false,
          timeline_positions: false,
          today: days[new Date().getDay()],
-         width: '350px'
+         width: '350px',
+         height: 0,
+         scrolled: 0,
+         midpoint: 0
       }
    },
    methods:{
@@ -89,8 +93,47 @@ export default {
          })
       },
       handleScroll(e){
-         // console.log(e)
-      }
+         this.scrolled = this.$el.scrollTop
+         this.height = this.$el.offsetHeight
+         this.midpoint = this.scrolled + (this.height/2)
+      },
+      checkTaskByScroll(){
+         // const tasks = Array.from(document.querySelectorAll('.task'))
+         // const findTask = tasks.find(task=>{
+         //       const taskHeight = task.offsetHeight
+         //       const taskOffsetTop = task.offsetTop
+         //       const taskMaxpoint = taskHeight+taskOffsetTop
+         //       if(midpoint >= taskOffsetTop && midpoint <= taskMaxpoint){
+         //          return task
+         //       }
+         // })
+         // this.visibleTask = findTask
+         // if(findTask){
+         //    const connectedLi = checkConnectedLi(findTask)
+         //    connectedLi.forEach(li=>{
+         //       li.classList.add('opacity')
+         //    })
+         //    findTask.classList.add('opacity')
+         //    this.$emit('setData', {
+         //       data:'taskColor',
+         //       value: findTask.style.background
+         //    })
+         // }
+         // else{
+         //    this.$emit('setData', {
+         //       data:'taskColor',
+         //       value: null
+         //    })
+         //    document.querySelectorAll('#Timeline li').forEach(li=>{
+         //       const liMin = li.offsetTop
+         //       const liMax = li.offsetTop + li.offsetHeight
+         //       li.classList.remove('opacity')
+         //       if(midpoint >= liMin && midpoint <= liMax){
+         //          li.classList.add('opacity')
+         //       }
+         //    })
+         // }
+      },
    },
    mounted(){
       this.container_mounted = true
