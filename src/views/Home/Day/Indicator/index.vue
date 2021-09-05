@@ -1,6 +1,6 @@
 <template>
    <div 
-      class="flex flex-col fixed w-full items-center"
+      class="flex flex-col fixed w-full items-center text-main-font"
       :style="{
          top: `${container.offsetHeight / 2 + container.offsetTop}px`,
          width

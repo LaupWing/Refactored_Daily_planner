@@ -13,6 +13,9 @@ let app = null
 onAuthStateChanged(getAuth(), async (user) => {
    if (!app) {
       await store.commit('user/setUser', user)
+      if(user){
+         await store.dispatch('planner/getData')
+      }
       app = new Vue({
          store,
          router,

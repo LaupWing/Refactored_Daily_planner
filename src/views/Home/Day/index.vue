@@ -5,6 +5,7 @@
       :style="{
          height: '50vh'
       }"
+      @scroll="handleScroll"
       ref="container"
    >
       <timeline
@@ -32,8 +33,6 @@
             :container="$refs.container"
          />
       </div>
-      <!-- <div class="absolute top-0"> -->
-      <!-- </div> -->
       <controls/>
    </div>
 </template>
@@ -88,6 +87,9 @@ export default {
                midpoint: (li.offsetTop + li.offsetHeight / 2) + (this.$refs.container.offsetHeight / 2),
             }
          })
+      },
+      handleScroll(e){
+         // console.log(e)
       }
    },
    mounted(){

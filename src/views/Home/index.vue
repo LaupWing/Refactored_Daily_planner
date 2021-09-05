@@ -11,9 +11,6 @@ export default {
    name: "Home",
    components: {
       Day
-   },
-   async created(){
-      await this.$store.dispatch('planner/getData')
    }
 };
 </script>
