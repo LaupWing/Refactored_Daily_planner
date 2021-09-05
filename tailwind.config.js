@@ -16,7 +16,10 @@ module.exports = {
                   primary: '#F3F6E7',
                   secundair: '#AAC6FC'
                },
-               font: '#63626B'
+               font: '#63626B',
+               task:{
+                  pink: '#E485A9'
+               }
             }
          }
       },
