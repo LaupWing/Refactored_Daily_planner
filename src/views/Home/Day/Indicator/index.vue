@@ -36,7 +36,6 @@ export default {
    },
    watch:{
       midpoint(){
-         console.log('chnaged')
          this.container.querySelectorAll('li').forEach(li=>{
             const max = li.offsetTop + li.offsetHeight
             const min = li.offsetTop
@@ -72,8 +71,7 @@ export default {
    },
    methods:{
       addZero(number){
-         if(number<10) return '0'+number
-         else          return number
+         return number < 10 ? '0'+ number : number
       }
    }
 }
