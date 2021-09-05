@@ -1,6 +1,7 @@
 <template>
    <li 
-      class="text-right opacity-30 text-xl flex-shrink-0 py-3"
+      class="text-right text-xl flex-shrink-0 py-3"
+      :class="showed ? 'opacity-100' : 'opacity-30' "
       :data-time="timestamp"
    >
       {{timestamp.includes('30') ? '-' : timestamp}}
@@ -19,22 +20,23 @@ export default {
          required: true
       }
    },
-   methods:{
-      test(){
+   computed:{
+      showed(){
+         if(!this.showed_task){
+            return false
+         }
          const taskHeight = this.showed_task.offsetHeight
          const taskOffsetTop = this.showed_task.offsetTop
          const taskMaxpoint = taskHeight + taskOffsetTop
-         const quarterInPx = li.offsetHeight/2 // Because one li represents half an hour
+         const quarterInPx = this.$el.offsetHeight / 2
 
          const min = taskOffsetTop - (quarterInPx*1.2) 
          const max = taskMaxpoint  + (quarterInPx*1.2)  
 
-         const liMin = li.offsetTop
-         const liMax = li.offsetTop + li.offsetHeight
+         const liMin = this.$el.offsetTop
+         const liMax = this.$el.offsetTop + this.$el.offsetHeight
 
-         if(liMin >= min && liMax <= max){
-            connectedLi.push(li)
-        }
+         return liMin >= min && liMax <= max
       }
    }
 }
