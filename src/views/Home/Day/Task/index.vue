@@ -18,6 +18,11 @@ export default {
          required: true
       }
    },
+   computed:{
+      top(){
+         
+      }
+   },
    created(){
       console.log(this.task)
       console.log(this.timeline_positions)

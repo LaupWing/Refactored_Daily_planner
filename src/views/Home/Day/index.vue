@@ -23,6 +23,7 @@
             v-for="(task, index) in tasksOfToday"
             :key="index"
             :task="task"
+            :today="today"
             v-if="timeline_positions"
             :timeline_positions="timeline_positions"
          />
@@ -50,15 +51,11 @@ export default {
 
          if(tasks){
             return tasks
-               .filter(task=>{
-                  const date = new Date()
-                  const dateNumber =  date.getDay()
-                  const currentDay = days[dateNumber]
-                  
-                  const checkDay = task.days.some(day=>day.day===currentDay)
-                  if(checkDay){
-                     return task
-                  }
+               .filter(task=> task.days.find(day=>day.day===this.today))
+               .map(task =>{
+                  task.time = task.days.find(day=>day.day===this.today)
+                  delete task.days
+                  return task
                })
          }
          return null
@@ -68,6 +65,7 @@ export default {
       return{
          container_mounted: false,
          timeline_positions: false,
+         today: days[new Date().getDay()]
       }
    },
    methods:{
