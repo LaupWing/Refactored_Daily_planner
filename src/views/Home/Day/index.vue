@@ -28,7 +28,7 @@
          />
       </div>
       <!-- <div class="absolute top-0"> -->
-      <indicator/>
+      <!-- <indicator/> -->
       <!-- </div> -->
       <controls/>
    </div>
