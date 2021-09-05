@@ -75,7 +75,7 @@ export default {
             return {
                time: li.dataset.time,
                height: li.offsetHeight,
-               midpoint: li.offsetTop + li.offsetHeight / 2,
+               midpoint: (li.offsetTop + li.offsetHeight / 2) + (this.$refs.container.offsetHeight / 2),
             }
          })
       }
