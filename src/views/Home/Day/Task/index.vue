@@ -60,6 +60,9 @@ export default {
          const point = li.midpoint + calcMinutes
          return point
       },
+   },
+   mounted(){
+      this.$emit('mounted', this.$el)
    }
 }
 </script>

@@ -10,8 +10,11 @@
 export default {
    name: 'Controls',
    props:{
-      container:{
-         type: HTMLDivElement,
+      tasks_elements:{
+         type: Array,
+         required: true
+      },
+      showed_task:{
          required: true
       },
    },

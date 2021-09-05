@@ -31,6 +31,7 @@
             :timeline_positions="timeline_positions"
             @disable_showed_task="set_showed_task_null"
             @set_showed_task="showed_task = $event"
+            @mounted="tasks_elements.push($event)"
          />
          <indicator
             v-if="container_mounted"
@@ -40,8 +41,8 @@
          />
       </div>
       <controls
-         v-if="container_mounted"
-         :container="$refs.container"
+         :tasks_elements="tasks_elements"
+         :showed_task="showed_task"
       />
    </div>
 </template>
@@ -87,7 +88,8 @@ export default {
          scrolled: 0,
          midpoint: 0,
          showed_task: null,
-         time: '00:00'
+         time: '00:00',
+         tasks_elements: []
       }
    },
    methods:{
