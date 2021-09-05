@@ -6,20 +6,22 @@
          paddingBottom: offset + 'px',
       }"
    >
-      <li 
-         class="text-right opacity-30 text-xl flex-shrink-0 py-3"
+      <timestamp
          v-for="(timestamp, i) in timestamps"
-         :data-time="timestamp"
+         :timestamp="timestamp"
          :key="i"
-      >
-         {{timestamp.includes('30') ? '-' : timestamp}}
-      </li>
+      />
    </ul>
 </template>
 
 <script>
+import Timestamp from './Timestap'
+
 export default {
    name: "Timeline",
+   components:{
+      Timestamp
+   },
    props:{
       container:{
          type: HTMLDivElement,
@@ -92,39 +94,3 @@ export default {
    }
 };
 </script>
-
-<style>
-ul#Timeline {
-   display: flex;
-   flex-direction: column;
-   padding-right: 15px;
-   padding-top: calc(var(--dailyPlanner-height) / 2);
-   margin-left: 20px;
-   padding-bottom: calc(var(--dailyPlanner-height) / 2);
-   box-sizing: content-box;
-   user-select: none;
-}
-#Timeline li {
-   padding: 10px 0;
-   list-style: none;
-   text-align: right;
-   display: inline;
-   font-size: 1.5em;
-   transform-origin: right;
-   opacity: 0.3;
-   transition: 1s;
-   position: relative;
-}
-#Timeline li.highlight {
-   transform: scale(1.2);
-}
-#Timeline li.opacity {
-   opacity: 1;
-}
-@media only screen and (max-height: 800px) {
-   #Timeline li {
-      padding: 5px 0;
-      font-size: 1.2em;
-   }
-}
-</style>
