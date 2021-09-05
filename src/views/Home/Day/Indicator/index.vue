@@ -8,7 +8,7 @@
    >
       <div class="border-t border-main-font w-full">
       </div>
-      <h2 class="text-sm">00:00</h2>
+      <h2 class="text-sm">{{time}}</h2>
    </div>
 </template>
 
@@ -23,6 +23,57 @@ export default {
       width:{
          type: String,
          required: true
+      },
+      midpoint:{
+         type: Number,
+         required: true
+      },
+   },
+   data(){
+      return{
+         time: '00:00'
+      }
+   },
+   watch:{
+      midpoint(){
+         console.log('chnaged')
+         this.container.querySelectorAll('li').forEach(li=>{
+            const max = li.offsetTop + li.offsetHeight
+            const min = li.offsetTop
+            if(this.midpoint >= min && this.midpoint <= max){
+               const liTime = li.dataset.time
+               const comparePoint = Math.round(li.offsetTop + (li.offsetHeight/2))
+               const oneMinuteInPx = li.offsetHeight/30
+               this.time = '00:00'
+               if(this.midpoint===comparePoint){
+                  this.time = liTime
+               }
+               else if(this.midpoint > comparePoint){
+                  const minutesDiffrence = Math.round((this.midpoint-comparePoint)/oneMinuteInPx)
+                  const liTimeHours =  Number(liTime.split(':')[0])
+                  const liTimeMinutes = Number(liTime.split(':')[1])
+                  this.time = `${this.addZero(liTimeHours)}:${this.addZero(liTimeMinutes+minutesDiffrence)}` 
+               }
+               else if(this.midpoint < comparePoint){
+                  const minutesDiffrence = Math.round((comparePoint-this.midpoint)/oneMinuteInPx)
+                  let liTimeHours =  Number(liTime.split(':')[0])
+                  let liTimeMinutes = Number(liTime.split(':')[1])
+                  if(liTimeMinutes === 0 ){
+                     liTimeHours = (liTimeHours !== 0) ? liTimeHours - 1 : 23
+                     liTimeMinutes = 60-minutesDiffrence
+                     this.time = `${this.addZero(liTimeHours)}:${this.addZero(liTimeMinutes)}`
+                  }else{
+                     this.time = `${this.addZero(liTimeHours)}:${this.addZero(liTimeMinutes-minutesDiffrence)}`
+                  }
+               }
+            }
+         })
+      },
+   },
+   methods:{
+      addZero(number){
+         if(number<10) return '0'+number
+         else          return number
       }
    }
 }

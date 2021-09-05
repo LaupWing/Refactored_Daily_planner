@@ -29,6 +29,7 @@
             :timeline_positions="timeline_positions"
          />
          <indicator
+            :midpoint="midpoint"
             :width="width"
             v-if="container_mounted"
             :container="$refs.container"
@@ -78,7 +79,8 @@ export default {
          height: 0,
          scrolled: 0,
          midpoint: 0,
-         showed_task: null
+         showed_task: null,
+         time: '00:00'
       }
    },
    methods:{
@@ -134,7 +136,7 @@ export default {
          //       }
          //    })
          // }
-      },
+      }
    },
    mounted(){
       this.container_mounted = true
