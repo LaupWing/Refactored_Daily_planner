@@ -1,10 +1,11 @@
 <template>
    <ul
-      class="flex flex-col flex-shrink-0 text-main-font"
+      class="flex flex-col flex-shrink-0 w-16 text-main-font"
       :style="{
          paddingTop: offset + 'px',
          paddingBottom: offset + 'px',
       }"
+      id="timeline"
    >
       <timestamp
          v-for="(timestamp, i) in timestamps"
