@@ -116,43 +116,24 @@ export default {
          this.height = this.$el.offsetHeight
          this.midpoint = this.scrolled + (this.height/2)
       },
-      checkTaskByScroll(){
-         // const tasks = Array.from(document.querySelectorAll('.task'))
-         // const findTask = tasks.find(task=>{
-         //       const taskHeight = task.offsetHeight
-         //       const taskOffsetTop = task.offsetTop
-         //       const taskMaxpoint = taskHeight+taskOffsetTop
-         //       if(midpoint >= taskOffsetTop && midpoint <= taskMaxpoint){
-         //          return task
-         //       }
-         // })
-         // this.visibleTask = findTask
-         // if(findTask){
-         //    const connectedLi = checkConnectedLi(findTask)
-         //    connectedLi.forEach(li=>{
-         //       li.classList.add('opacity')
-         //    })
-         //    findTask.classList.add('opacity')
-         //    this.$emit('setData', {
-         //       data:'taskColor',
-         //       value: findTask.style.background
-         //    })
-         // }
-         // else{
-         //    this.$emit('setData', {
-         //       data:'taskColor',
-         //       value: null
-         //    })
-         //    document.querySelectorAll('#Timeline li').forEach(li=>{
-         //       const liMin = li.offsetTop
-         //       const liMax = li.offsetTop + li.offsetHeight
-         //       li.classList.remove('opacity')
-         //       if(midpoint >= liMin && midpoint <= liMax){
-         //          li.classList.add('opacity')
-         //       }
-         //    })
-         // }
-      }
+      getDistanceHours(){
+         const currentElTime = Array.from(this.$el.querySelectorAll('#Timeline li'))
+               .filter(el=>el.textContent.includes(':'))
+               .find(el=>el.textContent.split(':')[0]===String(this.hours))
+         const parentElOffset = currentElTime.parentElement.offsetTop
+         const distance = 
+               (currentElTime.offsetTop-parentElOffset) - 
+               (this.$el.offsetHeight/2) + 
+               (currentElTime.offsetHeight/2)
+         return distance
+      },
+      getMinutesDistance(){
+         const li = document.querySelector('#Timeline li')
+         const totalDistance = li.offsetHeight*2
+         const distancePerMinute = totalDistance/60
+         const distance = distancePerMinute * this.minutes
+         return distance
+      },
    },
    mounted(){
       this.container_mounted = true
