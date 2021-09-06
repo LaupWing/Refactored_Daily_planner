@@ -14,7 +14,10 @@
          :showed_task="showed_task"
          :midpoint="midpoint"
          ref="timeline"
-         @mounted="createTimelinePositions"
+         @mounted="(e)=>{
+            createTimelinePositions(e)
+            test()
+         }"
       />
       <div 
          :style="{
@@ -132,6 +135,16 @@ export default {
          const distancePerMinute = totalDistance/60
          const distance = distancePerMinute * this.minutes
          return distance
+      },
+      test(){
+         const {hours, minutes} = this.getTime()
+         const li = this.$refs.timeline.$el.querySelector('li')
+         const totalDistance = li.offsetHeight*2
+         const distancePerMinute = totalDistance/60
+         const distanceMinutes = distancePerMinute * minutes
+         // console.log(this.getTime()) 
+         // console.log(this.timeline_positions
+         //       .find(tl=>tl.time.split(':')[0]===String(hours)))
       },
       getTime(){
          const date = new Date()
