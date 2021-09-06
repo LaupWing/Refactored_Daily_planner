@@ -44,6 +44,8 @@ export default {
                const comparePoint = Math.round(li.offsetTop + (li.offsetHeight/2))
                const oneMinuteInPx = li.offsetHeight/30
                this.time = '00:00'
+               console.log(comparePoint)
+               console.log(this.this.midpoint)
                if(this.midpoint===comparePoint){
                   this.time = liTime
                }
