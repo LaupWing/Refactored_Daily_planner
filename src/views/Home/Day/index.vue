@@ -16,7 +16,7 @@
          ref="timeline"
          @mounted="(e)=>{
             createTimelinePositions(e)
-            test()
+            setCurrentTime()
          }"
       />
       <div 
@@ -119,24 +119,7 @@ export default {
          this.height = this.$el.offsetHeight
          this.midpoint = this.scrolled + (this.height/2)
       },
-      getDistanceHours(){
-         const currentElTime = this.timeline_positions
-               .find(tl=>tl.time.split(':')[0]===String(this.hours))
-         const parentElOffset = currentElTime.parentElement.offsetTop
-         const distance = 
-               (currentElTime.offsetTop-parentElOffset) - 
-               (this.$el.offsetHeight/2) + 
-               (currentElTime.offsetHeight/2)
-         return distance
-      },
-      getMinutesDistance(){
-         const li = document.querySelector('#Timeline li')
-         const totalDistance = li.offsetHeight*2
-         const distancePerMinute = totalDistance/60
-         const distance = distancePerMinute * this.minutes
-         return distance
-      },
-      test(){
+      setCurrentTime(){
          const {hours, minutes} = this.getTime()
 
          const distanceHours = this.timeline_positions
@@ -146,7 +129,6 @@ export default {
          const totalDistance = li.offsetHeight * 2
          const distancePerMinute = totalDistance/60
          const distanceMinutes = distancePerMinute * minutes
-         console.log({minutes, hours}) 
          this.$el.scrollTo(0,((distanceHours + distanceMinutes) - this.$refs.container.offsetHeight / 2))
       },
       getTime(){
