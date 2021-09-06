@@ -84,6 +84,7 @@ export default {
       return{
          container_mounted: false,
          timeline_positions: false,
+         date_obj: new Date(),
          today: days[new Date().getDay()],
          width: '350px',
          height: 0,
@@ -117,9 +118,8 @@ export default {
          this.midpoint = this.scrolled + (this.height/2)
       },
       getDistanceHours(){
-         const currentElTime = Array.from(this.$el.querySelectorAll('#Timeline li'))
-               .filter(el=>el.textContent.includes(':'))
-               .find(el=>el.textContent.split(':')[0]===String(this.hours))
+         const currentElTime = this.timeline_positions
+               .find(tl=>tl.time.split(':')[0]===String(this.hours))
          const parentElOffset = currentElTime.parentElement.offsetTop
          const distance = 
                (currentElTime.offsetTop-parentElOffset) - 

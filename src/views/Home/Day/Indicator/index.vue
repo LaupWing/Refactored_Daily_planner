@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import {addZero} from '@/utils/date'
+
 export default {
    name: 'Indicator',
    props:{
@@ -51,7 +53,7 @@ export default {
                   const minutesDiffrence = Math.round((this.midpoint-comparePoint)/oneMinuteInPx)
                   const liTimeHours =  Number(liTime.split(':')[0])
                   const liTimeMinutes = Number(liTime.split(':')[1])
-                  this.time = `${this.addZero(liTimeHours)}:${this.addZero(liTimeMinutes+minutesDiffrence)}` 
+                  this.time = `${addZero(liTimeHours)}:${addZero(liTimeMinutes+minutesDiffrence)}` 
                }
                else if(this.midpoint < comparePoint){
                   const minutesDiffrence = Math.round((comparePoint-this.midpoint)/oneMinuteInPx)
@@ -60,19 +62,14 @@ export default {
                   if(liTimeMinutes === 0 ){
                      liTimeHours = (liTimeHours !== 0) ? liTimeHours - 1 : 23
                      liTimeMinutes = 60-minutesDiffrence
-                     this.time = `${this.addZero(liTimeHours)}:${this.addZero(liTimeMinutes)}`
+                     this.time = `${addZero(liTimeHours)}:${addZero(liTimeMinutes)}`
                   }else{
-                     this.time = `${this.addZero(liTimeHours)}:${this.addZero(liTimeMinutes-minutesDiffrence)}`
+                     this.time = `${addZero(liTimeHours)}:${addZero(liTimeMinutes-minutesDiffrence)}`
                   }
                }
             }
          })
       },
-   },
-   methods:{
-      addZero(number){
-         return number < 10 ? '0'+ number : number
-      }
    }
 }
 </script>
