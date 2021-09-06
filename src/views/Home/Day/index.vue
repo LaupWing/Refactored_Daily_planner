@@ -8,6 +8,12 @@
       @scroll="handleScroll"
       ref="container"
    >
+      <div 
+         @keyup.space.ctrl="test"
+         tabindex="0"
+         class="pointer-events-none fixed top-0 left-0 w-screen h-screen"
+      > 
+      </div>
       <timeline
          v-if="container_mounted"
          :container="$refs.container"
@@ -140,7 +146,7 @@ export default {
             hours,
             minutes
          }
-      },
+      }
    },
    mounted(){
       this.container_mounted = true
