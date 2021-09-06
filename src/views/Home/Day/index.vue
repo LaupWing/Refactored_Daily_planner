@@ -138,13 +138,16 @@ export default {
       },
       test(){
          const {hours, minutes} = this.getTime()
+
+         const distanceHours = this.timeline_positions
+               .find(tl=>tl.time.split(':')[0]===String(hours))
+               .midpoint
          const li = this.$refs.timeline.$el.querySelector('li')
-         const totalDistance = li.offsetHeight*2
+         const totalDistance = li.offsetHeight * 2
          const distancePerMinute = totalDistance/60
          const distanceMinutes = distancePerMinute * minutes
          // console.log(this.getTime()) 
-         // console.log(this.timeline_positions
-         //       .find(tl=>tl.time.split(':')[0]===String(hours)))
+         this.$el.scrollTo(0,(distanceHours))
       },
       getTime(){
          const date = new Date()
