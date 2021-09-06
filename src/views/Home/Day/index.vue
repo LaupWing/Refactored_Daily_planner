@@ -146,8 +146,8 @@ export default {
          const totalDistance = li.offsetHeight * 2
          const distancePerMinute = totalDistance/60
          const distanceMinutes = distancePerMinute * minutes
-         // console.log(this.getTime()) 
-         this.$el.scrollTo(0,(distanceHours))
+         console.log({minutes, hours}) 
+         this.$el.scrollTo(0,((distanceHours + distanceMinutes) - this.$refs.container.offsetHeight / 2))
       },
       getTime(){
          const date = new Date()

@@ -38,25 +38,26 @@ export default {
    },
    watch:{
       midpoint(){
+         const midpoint = Math.round(this.midpoint)
          this.container.querySelectorAll('li').forEach(li=>{
             const max = li.offsetTop + li.offsetHeight
             const min = li.offsetTop
-            if(this.midpoint >= min && this.midpoint <= max){
+            if(midpoint >= min && midpoint <= max){
                const liTime = li.dataset.time
                const comparePoint = Math.round(li.offsetTop + (li.offsetHeight/2))
                const oneMinuteInPx = li.offsetHeight/30
                this.time = '00:00'
-               if(Math.round(this.midpoint)===comparePoint){
+               if(Math.round(midpoint)===comparePoint){
                   this.time = liTime
                }
-               else if(this.midpoint > comparePoint){
-                  const minutesDiffrence = Math.round((this.midpoint-comparePoint)/oneMinuteInPx)
+               else if(midpoint > comparePoint){
+                  const minutesDiffrence = Math.round((midpoint-comparePoint)/oneMinuteInPx)
                   const liTimeHours =  Number(liTime.split(':')[0])
                   const liTimeMinutes = Number(liTime.split(':')[1])
                   this.time = `${addZero(liTimeHours)}:${addZero(liTimeMinutes+minutesDiffrence)}` 
                }
-               else if(this.midpoint < comparePoint){
-                  const minutesDiffrence = Math.round((comparePoint-this.midpoint)/oneMinuteInPx)
+               else if(midpoint < comparePoint){
+                  const minutesDiffrence = Math.round((comparePoint-midpoint)/oneMinuteInPx)
                   let liTimeHours =  Number(liTime.split(':')[0])
                   let liTimeMinutes = Number(liTime.split(':')[1])
                   if(liTimeMinutes === 0 ){
