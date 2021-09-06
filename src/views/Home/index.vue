@@ -1,5 +1,9 @@
 <template>
-   <div class="flex-1 flex items-center justify-center">
+   <div 
+      class="flex-1 flex items-center justify-center"
+      @keyup.space.ctrl="test" 
+      tabindex="0"
+   >
       <day/>
    </div>
 </template>
@@ -11,6 +15,11 @@ export default {
    name: "Home",
    components: {
       Day
+   },
+   methods:{
+      test(){
+         console.log('test')
+      }
    }
 };
 </script>
