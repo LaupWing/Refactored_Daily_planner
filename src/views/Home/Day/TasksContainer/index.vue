@@ -23,7 +23,7 @@
          :style="{
             width
          }"
-         class="flex-1 px-4 relative"
+         class="flex-1 mx-4 relative"
       >
          <task
             v-if="timeline_positions"
