@@ -1,7 +1,7 @@
 <template>
-   <div class="flex flex-col">
+   <!-- <div class="flex flex-col"> -->
       <tasks-container/>
-   </div>
+   <!-- </div> -->
 </template>
 
 <script>

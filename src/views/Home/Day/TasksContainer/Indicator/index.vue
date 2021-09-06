@@ -38,7 +38,6 @@ export default {
    },
    watch:{
       midpoint(){
-         console.log(this.midpoint)
          const midpoint = Math.round(this.midpoint)
          this.container.querySelectorAll('li').forEach(li=>{
             const max = li.offsetTop + li.offsetHeight
