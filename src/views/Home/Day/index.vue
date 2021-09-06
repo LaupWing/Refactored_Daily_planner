@@ -54,7 +54,7 @@ import Timeline from './Timeline'
 import Controls from './Controls'
 import Indicator from './Indicator'
 import Task from './Task'
-import {days} from '@/utils/date'
+import {days, addZero} from '@/utils/date'
 
 export default {
    name: 'Day',
@@ -84,7 +84,6 @@ export default {
       return{
          container_mounted: false,
          timeline_positions: false,
-         date_obj: new Date(),
          today: days[new Date().getDay()],
          width: '350px',
          height: 0,
@@ -133,6 +132,16 @@ export default {
          const distancePerMinute = totalDistance/60
          const distance = distancePerMinute * this.minutes
          return distance
+      },
+      getTime(){
+         const date = new Date()
+         const hours = addZero(date.getHours())
+         const minutes = addZero(date.getMinutes())
+
+         return {
+            hours,
+            minutes
+         }
       },
    },
    mounted(){
