@@ -125,17 +125,21 @@ export default {
          const distanceHours = this.timeline_positions
                .find(tl=>tl.time.split(':')[0]===String(hours))
                .midpoint
+               
          const li = this.$refs.timeline.$el.querySelector('li')
          const totalDistance = li.offsetHeight * 2
          const distancePerMinute = totalDistance/60
          const distanceMinutes = distancePerMinute * minutes
-         this.$el.scrollTo(0,((distanceHours + distanceMinutes) - this.$refs.container.offsetHeight / 2))
+         const moveTo = ((distanceHours + distanceMinutes) - this.$refs.container.offsetHeight / 2)
+         
+         setTimeout(()=>{
+            this.$el.scrollTo(0, moveTo)
+         }, 0)
       },
       getTime(){
          const date = new Date()
          const hours = addZero(date.getHours())
          const minutes = addZero(date.getMinutes())
-
          return {
             hours,
             minutes
