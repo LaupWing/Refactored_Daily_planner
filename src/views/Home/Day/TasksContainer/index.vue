@@ -134,7 +134,7 @@ export default {
          
          setTimeout(()=>{
             this.$el.scrollTo(0, moveTo)
-         }, 0)
+         })
       },
       getTime(){
          const date = new Date()
