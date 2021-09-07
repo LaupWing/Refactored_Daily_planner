@@ -2,6 +2,7 @@
    <div class="flex flex-col">
       <tasks-container
          ref="taskContainer"
+         :locked="locked"
       />
       <div 
          class="w-full border rounded-b-xl text-main-font border-main-font p-1 flex justify-center items-center ml-20 group hover:bg-main-font cursor-pointer"

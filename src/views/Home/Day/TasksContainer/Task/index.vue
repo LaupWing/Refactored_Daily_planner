@@ -1,14 +1,19 @@
 <template>
    <div
       data-task
-      class="absolute text-main-font w-full flex justify-between flex-col duration-500 select-none h-36 bg-main-task-pink border-2 border-main-font rounded-xl py-1 px-2"
-      :class="show ? 'opacity-100 shadow' : 'opacity-25' "
+      class="absolute text-main-font w-full flex justify-between flex-col select-none h-36 bg-white border-main-font rounded-xl overflow-hidden"
+      :class="show ? 'opacity-100 shadow border-2' : 'opacity-25 border' "
       :style="{
          top: `${top}px`,
          height: `${height}px`
       }"
    >
-      <h2 class="text-sm font-bold">{{task.task}}</h2>
+      <h2 
+         class="text-sm font-bold bg-main-task-pink px-2 py-1 border-main-font"
+         :class="show ? 'border-b-2' : 'border-b' "
+      >
+         {{task.task}}
+      </h2>
 
       <h3 class="text-xs">{{task.time.begin}} - {{task.time.end}}</h3>
    </div>

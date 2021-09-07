@@ -1,7 +1,8 @@
 <template>
    <div 
       id="planner"
-      class="relative overflow-y-auto flex items-start"
+      class="relative flex items-start"
+      :class="locked ? 'overflow-y-hidden' : 'overflow-y-auto' "
       :style="{
          height: '50vh'
       }"
@@ -66,6 +67,12 @@ export default {
       Controls,
       Task,
       Indicator
+   },
+   props:{
+      locked:{
+         required: true,
+         type: Boolean
+      }
    },
    computed:{
       tasksOfToday(){
