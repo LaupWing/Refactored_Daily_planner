@@ -5,7 +5,9 @@
          ref="taskContainer"
          :locked="locked"
       />
-      <scroll-lock/>
+      <scroll-lock
+         :locked.sync="locked"
+      />
    </div>
 </template>
 
