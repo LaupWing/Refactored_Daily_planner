@@ -1,7 +1,7 @@
 <template>
    <div 
       class="w-full border rounded-b text-main-font border-main-font p-1 flex justify-center items-center ml-20 group hover:bg-main-font cursor-pointer"
-      @click="locked = !locked"
+      @click="$store.commit('day/setLocked',!$store.state.day.locked)"
       :style="{
          width: '350px'
       }"
