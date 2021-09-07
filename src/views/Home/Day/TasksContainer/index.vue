@@ -2,7 +2,7 @@
    <div 
       id="planner"
       class="relative flex items-start"
-      :class="locked ? 'overflow-y-hidden' : 'overflow-y-auto' "
+      :class="$store.state.day.locked ? 'overflow-y-hidden' : 'overflow-y-auto' "
       :style="{
          height: '50vh'
       }"
@@ -67,12 +67,6 @@ export default {
       Controls,
       Task,
       Indicator
-   },
-   props:{
-      locked:{
-         required: true,
-         type: Boolean
-      }
    },
    computed:{
       tasksOfToday(){

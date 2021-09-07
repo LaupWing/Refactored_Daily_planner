@@ -1,3 +1,3 @@
 export const state = {
-   locked: false
+   locked: true
 }

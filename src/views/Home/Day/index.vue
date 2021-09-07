@@ -1,13 +1,8 @@
 <template>
    <div class="flex flex-col">
       <current-task/>
-      <tasks-container
-         ref="taskContainer"
-         :locked="locked"
-      />
-      <scroll-lock
-         :locked.sync="locked"
-      />
+      <tasks-container/>
+      <scroll-lock/>
    </div>
 </template>
 
