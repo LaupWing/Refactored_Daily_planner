@@ -1,4 +1,5 @@
 export const state = {
    locked: true,
-   task_width: '350px'
+   task_width: '350px',
+   showed_task: null
 }
