@@ -3,7 +3,7 @@
       class="flex flex-col fixed w-full items-center text-main-font"
       :style="{
          top: `${container.offsetHeight / 2 + container.offsetTop}px`,
-         width
+         width: $store.state.day.task_width
       }"
    >
       <div class="border-t border-main-font w-full">
@@ -20,10 +20,6 @@ export default {
    props:{
       container:{
          type: HTMLDivElement,
-         required: true
-      },
-      width:{
-         type: String,
          required: true
       },
       midpoint:{

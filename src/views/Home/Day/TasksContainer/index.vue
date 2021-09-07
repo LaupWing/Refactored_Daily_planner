@@ -22,7 +22,7 @@
       />
       <div 
          :style="{
-            width
+            width: $store.state.day.task_width
          }"
          class="flex-1 mx-4 relative"
       >
@@ -40,7 +40,6 @@
          <indicator
             v-if="container_mounted"
             :midpoint="midpoint"
-            :width="width"
             :container="$refs.container"
          />
       </div>
@@ -89,7 +88,6 @@ export default {
          container_mounted: false,
          timeline_positions: false,
          today: days[new Date().getDay()],
-         width: '350px',
          height: 0,
          scrolled: 0,
          midpoint: 0,
