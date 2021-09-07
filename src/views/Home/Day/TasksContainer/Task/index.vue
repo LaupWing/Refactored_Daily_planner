@@ -1,7 +1,7 @@
 <template>
    <div
       data-task
-      class="absolute text-main-font w-full flex justify-between flex-col select-none h-36 bg-white border-main-font rounded-xl overflow-hidden"
+      class="absolute text-main-font w-full flex justify-between flex-col select-none h-36 bg-white border-main-font rounded-md overflow-hidden"
       :class="show ? 'opacity-100 shadow border-2' : 'opacity-25 border' "
       :style="{
          top: `${top}px`,
@@ -15,7 +15,7 @@
          {{task.task}}
       </h2>
 
-      <h3 class="text-xs">{{task.time.begin}} - {{task.time.end}}</h3>
+      <h3 class="text-xs ml-2 mb-1">{{task.time.begin}} - {{task.time.end}}</h3>
    </div>
 </template>
 
