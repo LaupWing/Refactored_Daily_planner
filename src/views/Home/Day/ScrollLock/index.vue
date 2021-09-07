@@ -8,7 +8,7 @@
    >
       <icon-locked 
          class="w-5 group-hover:text-white"
-         v-if="locked"
+         v-if="$store.state.day.locked"
       />
       <icon-unlocked 
          class="w-5 group-hover:text-white"

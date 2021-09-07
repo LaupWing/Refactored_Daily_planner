@@ -1,4 +1,3 @@
 export const state = {
-   colorLabels: null,
-   dailyTasks: null,
+   locked: false
 }
