@@ -37,10 +37,14 @@ export default {
          currentScroll: this.container.scrollTop + (this.container.offsetHeight/2)
       }
    },
+   computed:{
+      tasks(){
+         return this.tasks_elements.sort((a,b)=>a.offsetTop > b.offsetTop)
+      }
+   },
    methods:{
       getScrollValue(up){
-         const tasks = this.tasks_elements
-         const filtered = tasks
+         const filtered = this.tasks
             .filter(task=> up ? task.offsetTop < this.currentScroll : task.offsetTop > this.currentScroll)
 
          if(filtered.length>0){
@@ -50,16 +54,16 @@ export default {
             return closest.offsetTop + (closest.offsetHeight/2) 
          }
          else{
-            return tasks[tasks.length-1].offsetTop + (tasks[tasks.length-1].offsetHeight/2) 
+            return this.tasks[this.tasks.length-1].offsetTop + (this.tasks[this.tasks.length-1].offsetHeight/2) 
          }
       },
       up(){
          let scrollTo = null
-         const tasks = this.tasks_elements
+         console.log(this.tasks)
          if(this.showed_task){
-            const index = tasks.indexOf(this.showed_task)
-            const dest = index === 0 ? (tasks.length-1) : (index-1) 
-            scrollTo = Number((tasks[dest].offsetTop + (tasks[dest].offsetHeight/2)))
+            const index = this.tasks.indexOf(this.showed_task)
+            const dest = index === 0 ? (this.tasks.length-1) : (index-1) 
+            scrollTo = Number((this.tasks[dest].offsetTop + (this.tasks[dest].offsetHeight/2)))
          }else{
             scrollTo = this.getScrollValue(true)
          }
@@ -67,23 +71,21 @@ export default {
       },
       down(){
          let scrollTo = null
-         const tasks = this.tasks_elements
          if(this.showed_task){
-            const index = tasks.indexOf(this.showed_task)
-            const dest = index === (tasks.length-1) ? 0 : (index+1)
-            scrollTo = Number((tasks[dest].offsetTop + (tasks[dest].offsetHeight/2)))
+            const index = this.tasks.indexOf(this.showed_task)
+            const dest = index === (this.tasks.length-1) ? 0 : (index+1)
+            scrollTo = Number((this.tasks[dest].offsetTop + (this.tasks[dest].offsetHeight/2)))
          }else{
             scrollTo = this.getScrollValue(false)
          }
          this.container.scrollTo(0, scrollTo - (this.container.offsetHeight/2))
       },
       mid(){
-         const tasks = this.tasks_elements
          if(!this.showed_task){
             return
          }
-         const index = tasks.indexOf(this.showed_task)
-         const scrollTo = tasks[index].offsetTop + (tasks[index].offsetHeight/2)
+         const index = this.tasks.indexOf(this.showed_task)
+         const scrollTo = this.tasks[index].offsetTop + (this.tasks[index].offsetHeight/2)
          this.container.scrollTo(0, scrollTo - (this.container.offsetHeight/2))
       },
    }
