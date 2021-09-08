@@ -122,8 +122,8 @@ export default {
          const {hours, minutes} = this.getTime()
 
          const distanceHours = this.timeline_positions
-               .find(tl=>tl.time.split(':')[0]===String(hours))
-               .midpoint
+            .find(tl=>tl.time.split(':')[0]===String(hours))
+            .midpoint
                
          const li = this.$refs.timeline.$el.querySelector('li')
          const totalDistance = li.offsetHeight * 2
@@ -157,29 +157,29 @@ export default {
          return date.getTime()
       },
       taskWatcher(){
-            const findTask = this.tasksOfToday.find((task)=>{
-                const begin = converDateToMS(this.getTimeOfThisDay('begin', task))
-                const end = converDateToMS(this.getTimeOfThisDay('end', task))
-                const currentTimeInMS = converDateToMS()
-                if(begin<=currentTimeInMS && end>=currentTimeInMS){
-                    return task
-                }
-            })
-            if(findTask){
-                this.changeTimeSize(findTask)
-                // For the message under the current time
-                this.currentTask = findTask.task
-                this.$emit('setTask', this.currentTask)
-            }else{
-                document.querySelectorAll('#Timeline li').forEach(li=>{
-                    li.classList.remove('highlight')
-                })
-                // For the message under the current time
-                this.currentTask = 'No Tasks Right now!'
-                this.$emit('setTask', this.currentTask)
+         const findTask = this.tasksOfToday.find((task)=>{
+            const begin = converDateToMS(this.getTimeOfThisDay('begin', task))
+            const end = converDateToMS(this.getTimeOfThisDay('end', task))
+            const currentTimeInMS = converDateToMS()
+            if(begin<=currentTimeInMS && end>=currentTimeInMS){
+               return task
             }
+         })
+         if(findTask){
+               this.changeTimeSize(findTask)
+               // For the message under the current time
+               this.currentTask = findTask.task
+               this.$emit('setTask', this.currentTask)
+         }else{
+               document.querySelectorAll('#Timeline li').forEach(li=>{
+                  li.classList.remove('highlight')
+               })
+               // For the message under the current time
+               this.currentTask = 'No Tasks Right now!'
+               this.$emit('setTask', this.currentTask)
+         }
 
-        },
+      },
    },
    mounted(){
       this.container_mounted = true
