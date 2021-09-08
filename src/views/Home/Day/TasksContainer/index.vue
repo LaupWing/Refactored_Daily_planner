@@ -158,10 +158,10 @@ export default {
       },
       taskWatcher(){
          const findTask = this.tasksOfToday.find((task)=>{
-            const begin = converDateToMS(this.getTimeOfThisDay('begin', task))
-            const end = converDateToMS(this.getTimeOfThisDay('end', task))
-            const currentTimeInMS = converDateToMS()
-            if(begin<=currentTimeInMS && end>=currentTimeInMS){
+            const begin = this.converDateToMS(task.time.begin)
+            const end = this.converDateToMS(task.time.end)
+            const currentTimeInMS = this.converDateToMS()
+            if(begin <= currentTimeInMS && end >= currentTimeInMS){
                return task
             }
          })
