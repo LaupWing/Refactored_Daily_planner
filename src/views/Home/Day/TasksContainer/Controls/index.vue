@@ -39,7 +39,15 @@ export default {
    },
    computed:{
       tasks(){
-         return this.tasks_elements.sort((a,b)=>a.offsetTop > b.offsetTop)
+         return this.tasks_elements.sort((a,b)=>{
+            if(a.offsetTop < b.offsetTop){
+               return -1
+            }
+            if(a.offsetTop > b.offsetTop){
+               return 1
+            }
+            return 0
+         })
       }
    },
    methods:{
