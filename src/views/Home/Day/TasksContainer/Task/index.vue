@@ -42,11 +42,12 @@ export default {
          return this.calculatePoint(this.task.time.end) - this.calculatePoint(this.task.time.begin)
       },
       show(){
+         const showed_task = this.$store.state._day.showed_task
+         const already_showed = showed_task && JSON.stringify(this.$store.state._day.showed_task.task) === JSON.stringify(this.task)
+         
          if(this.midpoint >= this.top && this.midpoint <= (this.top + this.height)){
-            if(this.showed_task){
-               if(String(this.showed_task.task) === String(this.task)){
-                  return true
-               }
+            if(showed_task && already_showed){
+               return true
             }
             this.$store.commit('_day/setProp',{
                value: {
@@ -57,15 +58,11 @@ export default {
             })
             return true
          }
-         console.log(this.task)
-         if(this.$store.state._day.showed_task){
-            if(JSON.stringify(this.$store.state._day.showed_task.task) === JSON.stringify(this.task)){
-               this.$store.commit('_day/setProp',{
+         if(showed_task && already_showed){
+            this.$store.commit('_day/setProp',{
                value: null,
                type: 'showed_task'
             })
-            }
-            // this.$store.commit('_day/set_showed_task_null', this.$store.state._day.showed_task)
          }
          return false
       }
