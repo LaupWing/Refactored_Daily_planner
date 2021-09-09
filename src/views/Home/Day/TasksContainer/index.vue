@@ -2,7 +2,7 @@
    <div 
       id="planner"
       class="relative flex items-start"
-      :class="$store.state.day.locked ? 'overflow-y-hidden' : 'overflow-y-auto' "
+      :class="$store.state._day.locked ? 'overflow-y-hidden' : 'overflow-y-auto' "
       :style="{
          height: '50vh'
       }"
@@ -22,7 +22,7 @@
       />
       <div 
          :style="{
-            width: $store.state.day.task_width
+            width: $store.state._day.task_width
          }"
          class="flex-1 mx-4 relative"
       >
@@ -119,7 +119,7 @@ export default {
          this.midpoint = this.scrolled + (this.height/2)
       },
       moveToCurrentTime(){
-         const {hours, minutes} = this.getTime()
+         const {hours, minutes} = this.$store.getters('_day/time')
 
          const distanceHours = this.timeline_positions
             .find(tl=>tl.time.split(':')[0]===String(hours))

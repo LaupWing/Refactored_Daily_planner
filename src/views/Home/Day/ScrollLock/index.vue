@@ -1,14 +1,14 @@
 <template>
    <div 
       class="w-full border rounded-b text-main-font border-main-font p-1 flex justify-center items-center ml-20 group hover:bg-main-font cursor-pointer"
-      @click="$store.commit('day/setLocked',!$store.state.day.locked)"
+      @click="$store.commit('_day/setLocked',!$store.state._day.locked)"
       :style="{
          width: '350px'
       }"
    >
       <icon-locked 
          class="w-5 group-hover:text-white"
-         v-if="$store.state.day.locked"
+         v-if="$store.state._day.locked"
       />
       <icon-unlocked 
          class="w-5 group-hover:text-white"

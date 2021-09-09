@@ -3,7 +3,7 @@
       class="flex flex-col select-none fixed w-full items-center text-main-font"
       :style="{
          top: `${container.offsetHeight / 2 + container.offsetTop}px`,
-         width: $store.state.day.task_width
+         width: $store.state._day.task_width
       }"
    >
       <div class="border-t border-main-font w-full">
