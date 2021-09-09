@@ -9,8 +9,7 @@
       }"
    >
       <h2 
-         class="text-sm font-bold bg-main-task-pink px-2 py-1 border-main-font"
-         :class="show ? 'border-b-2' : 'border-b' "
+         :class="`text-sm font-bold bg-main-task-${task.color.color} px-2 py-1 border-main-font ${show ? 'border-b-2' : 'border-b'}`"
       >
          {{task.task}}
       </h2>
