@@ -12,6 +12,7 @@
       <timeline
          v-if="$store.state._day.container_el"
          :container="$refs.container"
+         :showed_task="showed_task"
          :midpoint="midpoint"
          ref="timeline"
          @mounted="(e)=>{
@@ -31,6 +32,8 @@
             :key="index"
             :task="task"
             :midpoint="midpoint"
+            @disable_showed_task="set_showed_task_null"
+            @set_showed_task="showed_task = $event"
             @mounted="tasks_elements.push($event)"
          />
          <indicator
@@ -43,6 +46,7 @@
          v-if="$store.state._day.container_el"
          :container="$refs.container"
          :tasks_elements="tasks_elements"
+         :showed_task="showed_task"
       />
    </div>
 </template>
@@ -72,11 +76,17 @@ export default {
          height: 0,
          scrolled: 0,
          midpoint: 0,
+         showed_task: null,
          time: '00:00',
          tasks_elements: []
       }
    },
    methods:{
+      set_showed_task_null(e){
+         if(e === this.showed_task){
+            this.showed_task = null
+         }
+      },
       createTimelinePositions(e){
          this.$store.commit('_day/setProp',{
             value: Array.from(e.querySelectorAll('li'))
