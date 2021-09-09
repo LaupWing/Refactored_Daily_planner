@@ -38,14 +38,13 @@ export default {
          if(!this.showed_task){
             return false
          }
-         const taskHeight = this.showed_task.offsetHeight
-         const taskOffsetTop = this.showed_task.offsetTop
+         const taskHeight = this.showed_task.el.offsetHeight
+         const taskOffsetTop = this.showed_task.el.offsetTop
          const taskMaxpoint = taskHeight + taskOffsetTop
          const quarterInPx = this.$el.offsetHeight / 2
 
          const min = taskOffsetTop - (quarterInPx*1.2) 
          const max = taskMaxpoint  + (quarterInPx*1.2)  
-
 
          return liMin >= min && liMax <= max
       }
