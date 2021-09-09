@@ -17,7 +17,7 @@
          ref="timeline"
          @mounted="(e)=>{
             createTimelinePositions(e)
-            moveToCurrentTime()
+            $store.dispatch('_day/moveToCurrentTime')
          }"
       />
       <div 
@@ -110,6 +110,10 @@ export default {
                height: li.offsetHeight,
                midpoint: (li.offsetTop + li.offsetHeight / 2) + (this.$refs.container.offsetHeight / 2),
             }
+         })
+         this.$store.commit('_day/setProp',{
+            value: this.timeline_positions,
+            type: 'timeline_positions'
          })
       },
       handleScroll(e){
