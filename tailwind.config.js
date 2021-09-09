@@ -21,7 +21,10 @@ module.exports = {
                   pink: '#E485A9',
                   purple: '#b6b4fb',
                   blue: '#a1d8fc',
-                  yellow: '#fdf0b5'
+                  yellow: '#fdf0b5',
+                  red: '#D16A71',
+                  orange: '#F29387',
+                  green: '#A8E6CF',
                }
             }
          }
