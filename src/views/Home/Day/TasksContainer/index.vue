@@ -10,7 +10,7 @@
       ref="container"
    >
       <timeline
-         v-if="container_mounted"
+         v-if="$store.state._day.container_el"
          :container="$refs.container"
          :showed_task="showed_task"
          :midpoint="midpoint"
@@ -174,6 +174,10 @@ export default {
    },
    mounted(){
       this.container_mounted = true
+      this.$store.commit('_day/setProp',{
+         value: this.$el,
+         type: 'container_el'
+      })
    }
 }
 </script>
