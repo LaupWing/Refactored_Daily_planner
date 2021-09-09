@@ -17,15 +17,15 @@ export default {
          type: String,
          required: true
       },
-      showed_task:{
-         required: true
-      },
       midpoint:{
          type: Number,
          required: true
       },
    },
    computed:{
+      showed_task(){
+         return this.$store.state._day.showed_task
+      },
       showed(){
          if(!this.mounted){
             return

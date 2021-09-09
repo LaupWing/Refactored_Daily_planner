@@ -10,7 +10,6 @@
       <timestamp
          v-for="(timestamp, i) in timestamps"
          :timestamp="timestamp"
-         :showed_task="showed_task"
          :midpoint="midpoint"
          :key="i"
       />
@@ -34,9 +33,6 @@ export default {
          type: Number,
          required: true
       },
-      showed_task:{
-         required: true
-      }
    },
    data(){
       return{
