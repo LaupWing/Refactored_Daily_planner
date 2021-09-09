@@ -10,10 +10,10 @@ export const actions = {
       const totalDistance = li.offsetHeight * 2
       const distancePerMinute = totalDistance/60
       const distanceMinutes = distancePerMinute * minutes
-      const moveTo = ((distanceHours + distanceMinutes) - state.container.offsetHeight / 2)
+      const moveTo = ((distanceHours + distanceMinutes) - state.container_el.offsetHeight / 2)
       
       setTimeout(()=>{
-         this.$el.scrollTo(0, moveTo)
+         state.container_el.scrollTo(0, moveTo)
       })
    }
 }
