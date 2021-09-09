@@ -17,7 +17,7 @@
          ref="timeline"
          @mounted="(e)=>{
             createTimelinePositions(e)
-            setCurrentTime()
+            moveToCurrentTime()
          }"
       />
       <div 
@@ -118,7 +118,7 @@ export default {
          this.height = this.$el.offsetHeight
          this.midpoint = this.scrolled + (this.height/2)
       },
-      setCurrentTime(){
+      moveToCurrentTime(){
          const {hours, minutes} = this.getTime()
 
          const distanceHours = this.timeline_positions

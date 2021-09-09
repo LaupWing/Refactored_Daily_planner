@@ -1,5 +1,7 @@
 <template>
-   <div class="flex flex-col">
+   <div 
+      class="flex flex-col"
+   >
       <current-task/>
       <tasks-container/>
       <scroll-lock/>
