@@ -1,12 +1,12 @@
 <template>
    <div
-      class="my-2 w-6 h-6 rounded-full border-main-font border-2 font-bold text-main-font text-sm"
+      class="my-2 h-6 rounded-full border-main-font border-2 font-bold text-main-font text-sm"
       :class="`
          bg-main-task-${color} 
-         ${color === 'pink' ? 'w-40 px-2' : '' }
+         ${show ? 'px-2 w-full' : 'w-6' }
       `"
    >
-      {{color === 'pink' ? 'testing' : ''}}
+      {{label}}
    </div>
 </template>
 
@@ -18,6 +18,22 @@ export default {
          type: String,
          required: true
       }
+   },
+   computed:{
+      show(){
+         if(this.$store.state._day.showed_task){
+            console.log(this.$store.state._day.showed_task)
+            return this.$store.state._day.showed_task.task.color.color === this.color
+         }
+         return false
+      },
+      label(){
+         if(this.show){
+            console.log(this.show)
+            return this.$store.state.planner.colorLabels.find(color=>color.color === this.color).label
+         }
+         return ''
+      },
    }
 }
 </script>
