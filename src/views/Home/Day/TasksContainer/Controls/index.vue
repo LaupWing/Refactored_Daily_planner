@@ -24,9 +24,6 @@ export default {
          type: Array,
          required: true
       },
-      showed_task:{
-         required: true
-      },
       container:{
          type: HTMLDivElement,
          required: true
@@ -38,6 +35,9 @@ export default {
       }
    },
    computed:{
+      showed_task(){
+         return this.$store.state._day.showed_task
+      },
       tasks(){
          return this.tasks_elements.sort((a,b)=>{
             if(a.offsetTop < b.offsetTop){
@@ -67,7 +67,6 @@ export default {
       },
       up(){
          let scrollTo = null
-         console.log(this.tasks)
          if(this.showed_task){
             const index = this.tasks.indexOf(this.showed_task)
             const dest = index === 0 ? (this.tasks.length-1) : (index-1) 
