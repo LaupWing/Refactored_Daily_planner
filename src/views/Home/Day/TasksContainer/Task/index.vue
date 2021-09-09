@@ -50,10 +50,7 @@ export default {
             })
             return true
          }
-         this.$store.commit('_day/setProp',{
-            value: null,
-            type: 'showed_task'
-         })
+         this.$store.commit('_day/set_showed_task_null', this.$store.state._day.showed_task)
          this.$emit('disable_showed_task', this.$el)
          return false
       }
