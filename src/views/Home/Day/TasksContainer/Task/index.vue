@@ -58,7 +58,7 @@ export default {
             })
             return true
          }
-         if(showed_task && already_showed){
+         if(this.showed_task && already_showed){
             this.$store.commit('_day/setProp',{
                value: null,
                type: 'showed_task'

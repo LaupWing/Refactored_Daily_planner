@@ -1,12 +1,12 @@
 <template>
    <div
-      class="my-2 h-6 rounded-full border-main-font border-2 font-bold text-main-font text-sm"
+      class="my-2 h-6 rounded-full border-main-font border-2 font-bold text-main-font text-sm duration-200"
       :class="`
          bg-main-task-${color} 
          ${show ? 'px-2 w-full' : 'w-6' }
       `"
    >
-      <!-- {{label}} -->
+      {{label}}
    </div>
 </template>
 
