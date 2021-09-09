@@ -23,10 +23,6 @@
 export default {
    name: 'Task',
    props:{
-      timeline_positions:{
-         type: Array,
-         required: true
-      },
       task:{
          type: Object,
          required: true
@@ -54,7 +50,7 @@ export default {
    },
    methods:{
       calculatePoint(state) {
-         const li = this.timeline_positions.find((li) => {
+         const li = this.$store.state._day.timeline_positions.find((li) => {
             const liHour = li.time.split(":")[0]
             const taskHour = state.split(":")[0]
             if (liHour === taskHour) {

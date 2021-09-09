@@ -27,12 +27,11 @@
          class="flex-1 mx-4 relative"
       >
          <task
-            v-if="timeline_positions"
+            v-if="$store.state._day.timeline_positions"
             v-for="(task, index) in tasksOfToday"
             :key="index"
             :task="task"
             :midpoint="midpoint"
-            :timeline_positions="timeline_positions"
             @disable_showed_task="set_showed_task_null"
             @set_showed_task="showed_task = $event"
             @mounted="tasks_elements.push($event)"
@@ -85,7 +84,6 @@ export default {
    },
    data(){
       return{
-         timeline_positions: false,
          today: days[new Date().getDay()],
          height: 0,
          scrolled: 0,
@@ -102,17 +100,15 @@ export default {
          }
       },
       createTimelinePositions(e){
-         this.timeline_positions = Array.from(
-            e.querySelectorAll('li')
-         ).map((li) => {
-            return {
-               time: li.dataset.time,
-               height: li.offsetHeight,
-               midpoint: (li.offsetTop + li.offsetHeight / 2) + (this.$refs.container.offsetHeight / 2),
-            }
-         })
          this.$store.commit('_day/setProp',{
-            value: this.timeline_positions,
+            value: Array.from(e.querySelectorAll('li'))
+               .map((li) => {
+                  return {
+                     time: li.dataset.time,
+                     height: li.offsetHeight,
+                     midpoint: (li.offsetTop + li.offsetHeight / 2) + (this.$refs.container.offsetHeight / 2),
+                  }
+               }),
             type: 'timeline_positions'
          })
       },
@@ -124,7 +120,7 @@ export default {
       moveToCurrentTime(){
          const {hours, minutes} = this.$store.getters['_day/time']
 
-         const distanceHours = this.timeline_positions
+         const distanceHours = this.$store.state._day.timeline_positions
             .find(tl=>tl.time.split(':')[0]===String(hours))
             .midpoint
                
