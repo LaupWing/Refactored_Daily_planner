@@ -1,6 +1,8 @@
 <template>
    <div 
-      class="flex flex-col"
+      class="flex flex-col outline-none"
+      tabindex="0"
+      @keyup.space="$store.dispatch('_day/moveToCurrentTime')"
    >
       <current-task/>
       <tasks-container/>
