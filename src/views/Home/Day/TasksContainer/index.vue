@@ -38,13 +38,13 @@
             @mounted="tasks_elements.push($event)"
          />
          <indicator
-            v-if="container_mounted"
+            v-if="$store.state._day.container_el"
             :midpoint="midpoint"
             :container="$refs.container"
          />
       </div>
       <controls
-         v-if="container_mounted"
+         v-if="$store.state._day.container_el"
          :container="$refs.container"
          :tasks_elements="tasks_elements"
          :showed_task="showed_task"
@@ -85,7 +85,6 @@ export default {
    },
    data(){
       return{
-         container_mounted: false,
          timeline_positions: false,
          today: days[new Date().getDay()],
          height: 0,
@@ -173,7 +172,6 @@ export default {
       },
    },
    mounted(){
-      this.container_mounted = true
       this.$store.commit('_day/setProp',{
          value: this.$el,
          type: 'container_el'
