@@ -1,5 +1,5 @@
 export const mutations = {
-   setLocked(state, locked){
-      state.locked = locked
+   setProp(state, {type, value}){
+      state[type] = value
    },
 }
