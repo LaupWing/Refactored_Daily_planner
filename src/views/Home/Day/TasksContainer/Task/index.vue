@@ -32,6 +32,9 @@ export default {
       },
    },
    computed:{
+      showed_task(){
+         return this.$store.state._day.showed_task
+      },
       top(){
          return this.calculatePoint(this.task.time.begin)
       },
@@ -40,6 +43,11 @@ export default {
       },
       show(){
          if(this.midpoint >= this.top && this.midpoint <= (this.top + this.height)){
+            if(this.showed_task){
+               if(String(this.showed_task.task) === String(this.task)){
+                  return true
+               }
+            }
             this.$store.commit('_day/setProp',{
                value: {
                   el: this.$el,

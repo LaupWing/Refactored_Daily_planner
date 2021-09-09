@@ -22,14 +22,12 @@ export default {
    computed:{
       show(){
          if(this.$store.state._day.showed_task){
-            console.log(this.$store.state._day.showed_task)
             return this.$store.state._day.showed_task.task.color.color === this.color
          }
          return false
       },
       label(){
          if(this.show){
-            console.log(this.show)
             return this.$store.state.planner.colorLabels.find(color=>color.color === this.color).label
          }
          return ''
