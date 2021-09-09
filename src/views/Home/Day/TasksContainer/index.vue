@@ -45,7 +45,6 @@
          v-if="$store.state._day.container_el"
          :container="$refs.container"
          :tasks_elements="tasks_elements"
-         :showed_task="showed_task"
       />
    </div>
 </template>
