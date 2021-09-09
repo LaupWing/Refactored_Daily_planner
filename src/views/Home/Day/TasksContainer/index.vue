@@ -68,23 +68,11 @@ export default {
    },
    computed:{
       tasksOfToday(){
-         const tasks = this.$store.state.planner.dailyTasks 
-
-         if(tasks){
-            return tasks
-               .filter(task=> task.days.find(day=>day.day===this.today))
-               .map(task =>{
-                  task.time = task.days.find(day=>day.day===this.today)
-                  delete task.days
-                  return task
-               })
-         }
-         return null
+         return this.$store.getters['planner/tasksOfToday']
       } 
    },
    data(){
       return{
-         today: days[new Date().getDay()],
          height: 0,
          scrolled: 0,
          midpoint: 0,
