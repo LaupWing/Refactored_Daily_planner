@@ -57,8 +57,15 @@ export default {
             })
             return true
          }
+         console.log(this.task)
          if(this.$store.state._day.showed_task){
-            this.$store.commit('_day/set_showed_task_null', this.$store.state._day.showed_task)
+            if(JSON.stringify(this.$store.state._day.showed_task.task) === JSON.stringify(this.task)){
+               this.$store.commit('_day/setProp',{
+               value: null,
+               type: 'showed_task'
+            })
+            }
+            // this.$store.commit('_day/set_showed_task_null', this.$store.state._day.showed_task)
          }
          return false
       }
