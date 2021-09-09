@@ -6,7 +6,7 @@
          ${show ? 'px-2 w-full' : 'w-6' }
       `"
    >
-      {{label}}
+      <!-- {{label}} -->
    </div>
 </template>
 

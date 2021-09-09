@@ -40,7 +40,6 @@ export default {
       },
       show(){
          if(this.midpoint >= this.top && this.midpoint <= (this.top + this.height)){
-            this.$emit('set_showed_task', this.$el)
             this.$store.commit('_day/setProp',{
                value: {
                   el: this.$el,
@@ -50,10 +49,9 @@ export default {
             })
             return true
          }
-         if(!this.$store.state._day.showed_task){
+         if(this.$store.state._day.showed_task){
             this.$store.commit('_day/set_showed_task_null', this.$store.state._day.showed_task)
          }
-         this.$emit('disable_showed_task', this.$el)
          return false
       }
    },
