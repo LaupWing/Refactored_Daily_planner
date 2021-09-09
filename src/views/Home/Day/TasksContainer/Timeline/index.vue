@@ -95,11 +95,11 @@ export default {
       }
    },
    mounted(){
-      this.$emit('mounted', this.$el)
       this.$store.commit('_day/setProp',{
          value: this.$el,
          type: 'timeline_el'
       })
+      this.$emit('mounted', this.$el)
       this.offset = this.$store.state._day.container_el.offsetHeight/2
       window.onresize = ()=>{
          this.offset = this.$store.state._day.container_el.offsetHeight/2
