@@ -119,7 +119,7 @@ export default {
          this.midpoint = this.scrolled + (this.height/2)
       },
       moveToCurrentTime(){
-         const {hours, minutes} = this.$store.getters('_day/time')
+         const {hours, minutes} = this.$store.getters['_day/time']
 
          const distanceHours = this.timeline_positions
             .find(tl=>tl.time.split(':')[0]===String(hours))
@@ -134,15 +134,6 @@ export default {
          setTimeout(()=>{
             this.$el.scrollTo(0, moveTo)
          })
-      },
-      getTime(){
-         const date = new Date()
-         const hours = addZero(date.getHours())
-         const minutes = addZero(date.getMinutes())
-         return {
-            hours,
-            minutes
-         }
       },
       converDateToMS(time){
          const date = new Date()

@@ -1,3 +1,5 @@
+import { addZero} from '@/utils/date'
+
 export const getters = {
    time(){
       const date = new Date()
