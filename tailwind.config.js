@@ -18,7 +18,10 @@ module.exports = {
                },
                font: '#63626B',
                task:{
-                  pink: '#E485A9'
+                  pink: '#E485A9',
+                  purple: '#b6b4fb',
+                  blue: '#a1d8fc',
+                  yellow: '#fdf0b5'
                }
             }
          }
