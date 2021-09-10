@@ -19,8 +19,13 @@
 </template>
 
 <script>
+import ContextMenu from './ContextMenu'
+
 export default {
    name: 'Task',
+   components:{
+      ContextMenu
+   },
    props:{
       task:{
          type: Object,
