@@ -21,7 +21,8 @@ export default {
    },
    computed:{
       show(){
-         if(this.$store.state._day.showed_task){
+         return true
+         if(this.$store.state._day.showed_task.task){
             return this.$store.state._day.showed_task.task.color.color === this.color
          }
          return false

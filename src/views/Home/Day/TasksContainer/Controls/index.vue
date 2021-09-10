@@ -36,7 +36,7 @@ export default {
    },
    computed:{
       showed_task(){
-         return this.$store.state._day.showed_task
+         return this.$store.state._day.showed_task.el
       },
       tasks(){
          return this.tasks_elements.sort((a,b)=>{

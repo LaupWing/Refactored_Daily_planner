@@ -43,7 +43,8 @@ export default {
       },
       show(){
          const showed_task = this.$store.state._day.showed_task
-         const already_showed = showed_task && JSON.stringify(this.$store.state._day.showed_task.task) === JSON.stringify(this.task)
+         // const already_showed = showed_task && JSON.stringify(this.$store.state._day.showed_task.task) === JSON.stringify(this.task)
+         const already_showed = JSON.stringify(this.$store.state._day.showed_task.task) === JSON.stringify(this.task)
          
          if(this.midpoint >= this.top && this.midpoint <= (this.top + this.height)){
             console.log(showed_task)
