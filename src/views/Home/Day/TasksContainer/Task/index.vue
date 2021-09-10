@@ -7,7 +7,11 @@
          top: `${top}px`,
          height: `${height}px`
       }"
+      @click="show_context_menu = true"
    >
+      <context-menu
+         v-if="show_context_menu"
+      />
       <h2 
          :class="`text-sm font-bold bg-main-task-${task.color.color} px-2 py-1 border-main-font ${show ? 'border-b-2' : 'border-b'}`"
       >
@@ -48,6 +52,11 @@ export default {
       },
       show(){
          return this.midpoint >= this.top && this.midpoint <= (this.top + this.height)
+      }
+   },
+   data(){
+      return{
+         show_context_menu: false
       }
    },
    methods:{
