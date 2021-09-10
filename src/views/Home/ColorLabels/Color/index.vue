@@ -1,6 +1,6 @@
 <template>
    <div
-      class="my-2 h-6 rounded-full border-main-font border-2 font-bold text-main-font text-sm duration-200"
+      class="my-2 h-6 rounded-full border-main-font border-2 font-bold text-main-font text-sm duration-200 overflow-hidden"
       :class="`
          bg-main-task-${color} 
          ${show ? 'px-2 w-full' : 'w-6' }
@@ -21,7 +21,6 @@ export default {
    },
    computed:{
       show(){
-         return true
          if(this.$store.state._day.showed_task.task){
             return this.$store.state._day.showed_task.task.color.color === this.color
          }

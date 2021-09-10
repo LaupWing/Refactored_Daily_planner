@@ -2,7 +2,7 @@
    <div 
       class="flex-1 flex items-center justify-center relative"
    >
-      <!-- <color-labels/> -->
+      <color-labels/>
       <day/>
    </div>
 </template>
