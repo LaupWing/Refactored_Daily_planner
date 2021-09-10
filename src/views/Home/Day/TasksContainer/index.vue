@@ -69,6 +69,13 @@ export default {
          return this.$store.getters['planner/tasksOfToday']
       } 
    },
+   watch:{
+      midpoint(){
+         console.log(this.midpoint)
+         this.midpoint >= this.top && this.midpoint <= (this.top + this.height)
+         console.log(this.tasks_elements.find(el=>this.midpoint >= el.offsetTop && this.midpoint <= (el.offsetTop + el.offsetHeight)))
+      }
+   },
    data(){
       return{
          height: 0,

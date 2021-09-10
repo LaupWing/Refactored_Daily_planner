@@ -47,30 +47,30 @@ export default {
          const already_showed = JSON.stringify(this.$store.state._day.showed_task.task) === JSON.stringify(this.task)
          
          if(this.midpoint >= this.top && this.midpoint <= (this.top + this.height)){
-            console.log(JSON.stringify(this.task))
-            console.log(JSON.stringify(showed_task))
-            console.log(already_showed)
-            if(showed_task && already_showed){
-               // console.log('returning')
-               return true
-            }
-            this.$store.commit('_day/setProp',{
-               value: {
-                  el: this.$el,
-                  task: this.task
-               },
-               type: 'showed_task'
-            })
+            // console.log(JSON.stringify(this.task))
+            // console.log(JSON.stringify(showed_task))
+            // console.log(already_showed)
+            // if(showed_task && already_showed){
+            //    // console.log('returning')
+            //    return true
+            // }
+            // this.$store.commit('_day/setProp',{
+            //    value: {
+            //       el: this.$el,
+            //       task: this.task
+            //    },
+            //    type: 'showed_task'
+            // })
             return true
          }
          if(this.showed_task && already_showed){
-            this.$store.commit('_day/setProp',{
-               value: {
-                  el: null,
-                  task: null
-               },
-               type: 'showed_task'
-            })
+            // this.$store.commit('_day/setProp',{
+            //    value: {
+            //       el: null,
+            //       task: null
+            //    },
+            //    type: 'showed_task'
+            // })
          }
          return false
       }
