@@ -27,7 +27,6 @@ export default {
          return this.$store.state._day.showed_task.el ? this.$store.state._day.showed_task : false 
       },
       showed(){
-         return false
          if(!this.mounted){
             return
          }
