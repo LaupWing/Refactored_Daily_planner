@@ -68,7 +68,7 @@ export default {
       up(){
          let scrollTo = null
          if(this.showed_task){
-            const index = this.tasks.indexOf(this.showed_task.el)
+            const index = this.tasks.indexOf(this.showed_task)
             const dest = index === 0 ? (this.tasks.length-1) : (index-1) 
             scrollTo = Number((this.tasks[dest].offsetTop + (this.tasks[dest].offsetHeight/2)))
          }else{
@@ -79,7 +79,7 @@ export default {
       down(){
          let scrollTo = null
          if(this.showed_task){
-            const index = this.tasks.indexOf(this.showed_task.el)
+            const index = this.tasks.indexOf(this.showed_task)
             const dest = index === (this.tasks.length-1) ? 0 : (index+1)
             scrollTo = Number((this.tasks[dest].offsetTop + (this.tasks[dest].offsetHeight/2)))
          }else{
@@ -91,7 +91,7 @@ export default {
          if(!this.showed_task){
             return
          }
-         const index = this.tasks.indexOf(this.showed_task.el)
+         const index = this.tasks.indexOf(this.showed_task)
          const scrollTo = this.tasks[index].offsetTop + (this.tasks[index].offsetHeight/2)
          this.container.scrollTo(0, scrollTo - (this.container.offsetHeight/2))
       },

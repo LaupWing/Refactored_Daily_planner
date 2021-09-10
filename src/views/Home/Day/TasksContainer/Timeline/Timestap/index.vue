@@ -24,15 +24,13 @@ export default {
    },
    computed:{
       showed_task(){
-         console.log(this.$store.state._day.showed_task.el)
-         console.log(this.$store.state._day.showed_task)
          return this.$store.state._day.showed_task.el ? this.$store.state._day.showed_task : false 
       },
       showed(){
+         return false
          if(!this.mounted){
             return
          }
-         console.log(this.showed_task)
          const liMin = this.$refs.timestamp.offsetTop
          const liMax = this.$refs.timestamp.offsetTop + this.$el.offsetHeight
          if(this.midpoint >= liMin && this.midpoint <= liMax){
