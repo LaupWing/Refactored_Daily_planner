@@ -1,6 +1,8 @@
+import {getHoursMinutes} from '@/utils/date'
+
 export const actions = {
-   moveToCurrentTime({getters, state}){
-      const {hours, minutes} = getters.time
+   moveToCurrentTime({state}){
+      const {hours, minutes} = getHoursMinutes()
 
       const distanceHours = state.timeline_positions
          .find(tl=>tl.time.split(':')[0]===String(hours))
