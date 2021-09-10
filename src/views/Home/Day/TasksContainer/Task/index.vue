@@ -46,7 +46,10 @@ export default {
          const already_showed = showed_task && JSON.stringify(this.$store.state._day.showed_task.task) === JSON.stringify(this.task)
          
          if(this.midpoint >= this.top && this.midpoint <= (this.top + this.height)){
+            console.log(showed_task)
+            console.log(already_showed)
             if(showed_task && already_showed){
+               console.log('returning')
                return true
             }
             this.$store.commit('_day/setProp',{
