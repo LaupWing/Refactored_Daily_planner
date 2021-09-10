@@ -47,8 +47,9 @@ export default {
          const already_showed = JSON.stringify(this.$store.state._day.showed_task.task) === JSON.stringify(this.task)
          
          if(this.midpoint >= this.top && this.midpoint <= (this.top + this.height)){
-            // console.log(showed_task)
-            // console.log(already_showed)
+            console.log(JSON.stringify(this.task))
+            console.log(JSON.stringify(showed_task))
+            console.log(already_showed)
             if(showed_task && already_showed){
                // console.log('returning')
                return true
