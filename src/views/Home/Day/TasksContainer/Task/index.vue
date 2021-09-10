@@ -54,13 +54,7 @@ export default {
             //    // console.log('returning')
             //    return true
             // }
-            // this.$store.commit('_day/setProp',{
-            //    value: {
-            //       el: this.$el,
-            //       task: this.task
-            //    },
-            //    type: 'showed_task'
-            // })
+            
             return true
          }
          if(this.showed_task && already_showed){
@@ -90,7 +84,10 @@ export default {
       },
    },
    mounted(){
-      this.$emit('mounted', this.$el)
+      this.$emit('mounted', {
+         el: this.$el,
+         task: this.task
+      })
    }
 }
 </script>

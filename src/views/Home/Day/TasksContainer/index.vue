@@ -33,7 +33,7 @@
             :midpoint="midpoint"
             @disable_showed_task="set_showed_task_null"
             @set_showed_task="showed_task = $event"
-            @mounted="tasks_elements.push($event)"
+            @mounted="tasks.push($event)"
          />
          <indicator
             v-if="$store.state._day.container_el"
@@ -44,7 +44,7 @@
       <controls
          v-if="$store.state._day.container_el"
          :container="$refs.container"
-         :tasks_elements="tasks_elements"
+         :tasks_elements="tasks.map(x=>x.el)"
       />
    </div>
 </template>
@@ -71,9 +71,22 @@ export default {
    },
    watch:{
       midpoint(){
-         console.log(this.midpoint)
-         this.midpoint >= this.top && this.midpoint <= (this.top + this.height)
-         console.log(this.tasks_elements.find(el=>this.midpoint >= el.offsetTop && this.midpoint <= (el.offsetTop + el.offsetHeight)))
+         const showed_task = this.tasks.find(x=> this.midpoint >= x.el.offsetTop && this.midpoint <= (x.el.offsetTop + x.el.offsetHeight))
+         
+         if(showed_task){
+            this.$store.commit('_day/setProp',{
+               value: showed_task,
+               type: 'showed_task'
+            })
+         }else{
+            this.$store.commit('_day/setProp',{
+               value: {
+                  el: null,
+                  task: null
+               },
+               type: 'showed_task'
+            })
+         }
       }
    },
    data(){
@@ -83,7 +96,7 @@ export default {
          midpoint: 0,
          showed_task: null,
          time: '00:00',
-         tasks_elements: []
+         tasks: []
       }
    },
    methods:{
