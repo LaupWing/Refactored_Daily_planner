@@ -12,6 +12,7 @@
       <context-menu
          v-if="show_context_menu"
          :event="show_context_menu"
+         :task="task"
          @close="show_context_menu = false"
       />
       <h2 
