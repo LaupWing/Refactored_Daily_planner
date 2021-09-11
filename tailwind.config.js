@@ -8,6 +8,7 @@ module.exports = {
       extend: {
          colors:{
             main:{
+               warning: '#FF6961',
                highlight: {
                   primary: '#F5E361',
                   dark: '#e8d75d'

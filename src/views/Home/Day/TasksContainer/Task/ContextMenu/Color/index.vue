@@ -1,6 +1,6 @@
 <template>
    <div 
-      class="bg-main-task-pink m-1.5 w-6 h-6 rounded-full"
+      class="m-1.5 w-6 h-6 rounded-full"
       :class="`bg-main-task-${color}`"
    ></div>
 </template>

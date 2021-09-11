@@ -21,7 +21,7 @@
          <div class="flex w-full justify-center items-center py-2 border-b border-main-font hover:bg-red-300 hover:text-white cursor-pointer">
             <icon-trashcan class="w-5"/>
          </div>
-         <button class="px-3 py-0.5 my-2 uppercase rounded-full hover:bg-main-font hover:text-white border border-main-font text-xs tracking-wider">Confirm</button>
+         <button class="px-3 py-0.5 my-3 uppercase rounded-full hover:bg-main-font hover:text-white border border-main-font text-xs tracking-wider">Confirm</button>
       </div>
    </app-backdrop>
 </template>
