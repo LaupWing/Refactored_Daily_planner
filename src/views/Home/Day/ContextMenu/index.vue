@@ -1,6 +1,11 @@
 <template>
    <app-backdrop
-      v-on="$listeners"
+      @close="
+         $store.commit('_day/setProp',{
+            value: null,
+            type: 'contextmenu'
+         })
+      "
    >
       <div 
          class="w-48 bg-white fixed rounded shadow flex flex-col items-center"
