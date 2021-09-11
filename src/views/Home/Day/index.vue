@@ -4,6 +4,9 @@
       tabindex="0"
       @keyup.space="$store.dispatch('_day/moveToCurrentTime')"
    >
+      <context-menu
+         v-if="$store.state._day.contextmenu"
+      />
       <current-task/>
       <tasks-container/>
       <scroll-lock/>
@@ -14,13 +17,15 @@
 import TasksContainer from './TasksContainer'
 import CurrentTask from './CurrentTask'
 import ScrollLock from './ScrollLock'
+import ContextMenu from './ContextMenu'
 
 export default {
    name: 'Day',
    components:{
       TasksContainer,
       CurrentTask,
-      ScrollLock
+      ScrollLock,
+      ContextMenu
    },
    data(){
       return {
