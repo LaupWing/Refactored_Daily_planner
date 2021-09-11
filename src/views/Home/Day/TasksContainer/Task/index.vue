@@ -7,14 +7,16 @@
          top: `${top}px`,
          height: `${height}px`
       }"
-      @contextmenu.prevent="show_context_menu = $event"
+      @contextmenu.prevent="
+         $store.commit('_day/setProp',{
+            value: {
+               event: $event,
+               task
+            },
+            type: 'contextmenu'
+         })
+      "
    >
-      <!-- <context-menu
-         v-if="show_context_menu"
-         :event="show_context_menu"
-         :task="task"
-         @close="show_context_menu = false"
-      /> -->
       <h2 
          :class="`text-sm font-bold bg-main-task-${task.color.color} px-2 py-1 border-main-font ${show ? 'border-b-2' : 'border-b'}`"
       >
@@ -26,13 +28,8 @@
 </template>
 
 <script>
-import ContextMenu from './ContextMenu'
-
 export default {
    name: 'Task',
-   components:{
-      ContextMenu
-   },
    props:{
       task:{
          type: Object,
