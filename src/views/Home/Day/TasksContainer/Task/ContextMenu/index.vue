@@ -16,9 +16,10 @@
                v-for="color in $store.state.planner.colors"
                :key="color"
                :color="color"
+               :active="task.color.color"
             />
          </div>
-         <div class="flex w-full justify-center items-center py-2 border-b border-main-font hover:bg-red-300 hover:text-white cursor-pointer">
+         <div class="flex w-full justify-center items-center py-2 border-b border-main-font hover:bg-main-warning duration-200 hover:text-white cursor-pointer">
             <icon-trashcan class="w-5"/>
          </div>
          <button class="px-3 py-0.5 my-3 uppercase rounded-full hover:bg-main-font hover:text-white border border-main-font text-xs tracking-wider">Confirm</button>
