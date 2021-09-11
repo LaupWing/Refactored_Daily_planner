@@ -7,5 +7,6 @@ export const state = {
    },
    timeline_el: null,
    container_el: null,
-   timeline_positions: null
+   timeline_positions: null,
+   contextmenu: null
 }

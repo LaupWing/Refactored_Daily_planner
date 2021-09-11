@@ -9,12 +9,12 @@
       }"
       @contextmenu.prevent="show_context_menu = $event"
    >
-      <context-menu
+      <!-- <context-menu
          v-if="show_context_menu"
          :event="show_context_menu"
          :task="task"
          @close="show_context_menu = false"
-      />
+      /> -->
       <h2 
          :class="`text-sm font-bold bg-main-task-${task.color.color} px-2 py-1 border-main-font ${show ? 'border-b-2' : 'border-b'}`"
       >
