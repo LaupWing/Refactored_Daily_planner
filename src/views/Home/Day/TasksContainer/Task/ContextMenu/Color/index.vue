@@ -7,7 +7,12 @@
             ${active === color ? 'active' : ''}
          `
       "
-   ></div>
+   >
+      <icon-check
+         v-if="active === color"
+         class="w-5 text-white"
+      />
+   </div>
 </template>
 
 <script>
@@ -32,7 +37,7 @@ div:hover::before,
    content: '';
    width: 130%;
    height: 130%;
-   background: rgba(0,0,0,.2);
+   background: rgba(0,0,0,.15);
    border-radius: 50%;
    position: absolute;
    z-index: -2;
