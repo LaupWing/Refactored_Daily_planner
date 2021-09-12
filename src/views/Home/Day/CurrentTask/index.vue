@@ -7,8 +7,8 @@
       }"
    >
       <div class="flex-1 flex items-center text-sm text-center">
-         <div class="bg-main-font p-1 px-2 mr-2 text-white tracking-wider">
-            21:00
+         <div class="bg-main-font p-1 w-16 mr-2 text-white tracking-wider">
+            <digital-clock :blink="true"/>
          </div>
          {{$store.state._day.current_task}}
       </div>
@@ -21,7 +21,12 @@
 </template>
 
 <script>
+import DigitalClock from "vue-digital-clock"
+
 export default {
-   name: 'CurrentTask'
+   name: 'CurrentTask',
+   components: {
+      DigitalClock
+   }
 }
 </script>
