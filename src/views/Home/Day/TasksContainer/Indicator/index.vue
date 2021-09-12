@@ -18,10 +18,6 @@ import {addZero} from '@/utils/date'
 export default {
    name: 'Indicator',
    props:{
-      container:{
-         type: HTMLDivElement,
-         required: true
-      },
       midpoint:{
          type: Number,
          required: true
@@ -30,6 +26,11 @@ export default {
    data(){
       return{
          time: '00:00'
+      }
+   },
+   computed:{
+      container(){
+         return this.$store.state._day.container_el
       }
    },
    watch:{

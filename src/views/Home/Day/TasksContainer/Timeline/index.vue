@@ -25,10 +25,6 @@ export default {
       Timestamp
    },
    props:{
-      container:{
-         type: HTMLDivElement,
-         required: true
-      },
       midpoint:{
          type: Number,
          required: true

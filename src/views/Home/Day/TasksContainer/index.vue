@@ -11,7 +11,6 @@
    >
       <timeline
          v-if="$store.state._day.container_el"
-         :container="$refs.container"
          :midpoint="midpoint"
          ref="timeline"
          @mounted="(e)=>{
@@ -38,7 +37,6 @@
          <indicator
             v-if="$store.state._day.container_el"
             :midpoint="midpoint"
-            :container="$refs.container"
          />
       </div>
       <controls
@@ -96,7 +94,10 @@ export default {
          midpoint: 0,
          showed_task: null,
          time: '00:00',
-         tasks: []
+         tasks: [],
+         new_task: {
+
+         }
       }
    },
    methods:{
