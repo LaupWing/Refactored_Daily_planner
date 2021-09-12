@@ -8,5 +8,6 @@ export const state = {
    timeline_el: null,
    container_el: null,
    timeline_positions: null,
-   contextmenu: null
+   contextmenu: null,
+   current_task: null
 }

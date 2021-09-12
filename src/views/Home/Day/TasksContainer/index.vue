@@ -94,7 +94,12 @@ export default {
          time: '00:00',
          tasks: [],
          new_task: {
-
+            starting: false,
+            ending: null,
+            ended: false,
+            color: null,
+            task: '',
+            notes: ''
          }
       }
    },
@@ -134,8 +139,29 @@ export default {
          }
          return date.getTime()
       },
+      creatingTask(section){
+         const containerCoords = this.$el.getBoundingClientRect()
+         const yValInContainer = (this.$el.scrollTop + event.y) - containerCoords.top 
+         const min = fiveMinuteCoords()[0].coord 
+         
+         if(
+            (min-5) > yValInContainer ||
+            (this.createTask.starting && this.createTask.starting.coord > yValInContainer) ||
+            this.createTask.ended
+         ){
+               return
+         }
+         if(this.createTask.ending && section === 'ending'){
+            const overlapping = pointOverlappedTask(this.createTask.starting.coord, yValInContainer)
+
+            if(overlapping){
+               return
+            }
+         }
+         this.createTask[section] = getClosestCoord(yValInContainer)
+      },
       taskWatcher(){
-         const findTask = this.tasksOfToday.find((task)=>{
+         const find_task = this.tasksOfToday.find((task)=>{
             const begin = this.converDateToMS(task.time.begin)
             const end = this.converDateToMS(task.time.end)
             const currentTimeInMS = this.converDateToMS()
@@ -143,23 +169,22 @@ export default {
                return task
             }
          })
-         if(findTask){
-               this.changeTimeSize(findTask)
-               // For the message under the current time
-               this.currentTask = findTask.task
-               this.$emit('setTask', this.currentTask)
-         }else{
-               document.querySelectorAll('#Timeline li').forEach(li=>{
-                  li.classList.remove('highlight')
-               })
-               // For the message under the current time
-               this.currentTask = 'No Tasks Right now!'
-               this.$emit('setTask', this.currentTask)
-         }
 
+         if(find_task){
+            this.$store.commit('_day/setProp',{
+               value: find_task.task,
+               type: 'current_task'
+            })
+         }else{
+            this.$store.commit('_day/setProp',{
+               value: 'No task right now!',
+               type: 'current_task'
+            })
+         }
       },
    },
    mounted(){
+      this.taskWatcher()
       this.$store.commit('_day/setProp',{
          value: this.$el,
          type: 'container_el'
