@@ -24,17 +24,14 @@ export default {
          type: Array,
          required: true
       },
-      container:{
-         type: HTMLDivElement,
-         required: true
-      },
-   },
-   data(){
-      return{
-         currentScroll: this.container.scrollTop + (this.container.offsetHeight/2)
-      }
    },
    computed:{
+      container(){
+         return this.$store.state._day.container_el
+      },
+      currentScroll(){
+         return this.container.scrollTop + (this.container.offsetHeight/2)
+      },
       showed_task(){
          return this.$store.state._day.showed_task.el
       },

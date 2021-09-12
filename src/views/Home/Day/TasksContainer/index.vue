@@ -7,7 +7,6 @@
          height: '50vh'
       }"
       @scroll="handleScroll"
-      ref="container"
    >
       <timeline
          v-if="$store.state._day.container_el"
@@ -41,7 +40,6 @@
       </div>
       <controls
          v-if="$store.state._day.container_el"
-         :container="$refs.container"
          :tasks_elements="tasks.map(x=>x.el)"
       />
    </div>
@@ -113,7 +111,7 @@ export default {
                   return {
                      time: li.dataset.time,
                      height: li.offsetHeight,
-                     midpoint: (li.offsetTop + li.offsetHeight / 2) + (this.$refs.container.offsetHeight / 2),
+                     midpoint: (li.offsetTop + li.offsetHeight / 2) + (this.$el.offsetHeight / 2),
                   }
                }),
             type: 'timeline_positions'
